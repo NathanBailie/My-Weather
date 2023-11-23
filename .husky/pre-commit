@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+npm run lint:scss
+npm run lint:ts
+npm run build:prod
