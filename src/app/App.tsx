@@ -1,7 +1,13 @@
+import { Header } from 'entities/Header';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { useTheme } from './providers/ThemeProvider';
+
 const App = (): any => {
+    const { theme } = useTheme();
+
     return (
-        <div className="app">
-            <h1>Hello, World!</h1>
+        <div className={classNames('app', {}, [theme])}>
+            <Header />
         </div>
     )
 }

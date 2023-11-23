@@ -28,16 +28,9 @@ export function createLoaders(isDev: boolean): RuleSetRule[] {
         }
     };
 
-    const svgLoader = {
-        test: /\.svg$/i,
-        issuer: /\.[jt]sx?$/,
-        use: ['@svgr/webpack']
-    };
-
     return [
         imageLoader,
         fontLoader,
-        svgLoader,
         babelLoader,
         typeScriptLoader,
         sassLoader

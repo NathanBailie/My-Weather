@@ -2,6 +2,15 @@
 @import '../variables/global';
 
 /* stylelint-disable */
+html {
+    background: #fbf4cd;
+}
+
 .app {
     font-family: sans-serif;
+    max-width: 1200px;
+    border: 1px solid orange;
+    margin: 25px auto 0;
+    padding: 15px;
+    border-radius: 14px;
 }
