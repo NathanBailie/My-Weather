@@ -9,3 +9,26 @@
     background: none;
     outline: none;
 }
+
+.themeBtn {
+    width: var(--theme-switcher-width);
+}
+
+.langBtn {
+    width: var(--lang-switcher-width);
+}
+
+.font {
+
+    &_m {
+        font: var(--font-m);
+    }
+
+    &_l {
+        font: var(--font-l);
+    }
+
+    &_xl {
+        font: var(--font-xl);
+    }
+}

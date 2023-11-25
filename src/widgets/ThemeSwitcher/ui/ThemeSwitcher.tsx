@@ -6,18 +6,20 @@ import { Icon } from 'shared/ui/Icon/Icon';
 import lightIcon from 'shared/assets/icons/themes/light.png';
 import darkIcon from 'shared/assets/icons/themes/dark.png';
 import { Button } from 'shared/ui/Button/Button';
+import { useTranslation } from 'react-i18next';
 
 export const ThemeSwitcher = memo(() => {
     const { theme, themeChanger } = useTheme();
+    const { t } = useTranslation();
 
     return (
         <Button
-            className={classNames(cls.ThemeSwitcher, {}, [])}
+            className={classNames(cls.ThemeSwitcher, {}, ['themeBtn'])}
             onClick={themeChanger}
             title={
                 theme === Theme.DARK
-                    ? 'Темная тема'
-                    : 'Светлая тема'
+                    ? t('DarkTheme')
+                    : t('LightTheme')
             }
         >
             {

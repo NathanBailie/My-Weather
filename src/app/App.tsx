@@ -3,7 +3,7 @@ import { Header } from 'entities/Header';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTheme } from './providers/ThemeProvider';
 
-const App = (): any => {
+const App = () => {
     const { theme } = useTheme();
 
     return (
