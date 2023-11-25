@@ -5,12 +5,13 @@ import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import { Icon } from 'shared/ui/Icon/Icon';
 import lightIcon from 'shared/assets/icons/themes/light.png';
 import darkIcon from 'shared/assets/icons/themes/dark.png';
+import { Button } from 'shared/ui/Button/Button';
 
 export const ThemeSwitcher = memo(() => {
     const { theme, themeChanger } = useTheme();
 
     return (
-        <button
+        <Button
             className={classNames(cls.ThemeSwitcher, {}, [])}
             onClick={themeChanger}
             title={
@@ -24,7 +25,7 @@ export const ThemeSwitcher = memo(() => {
                     ? <Icon src={darkIcon} />
                     : <Icon src={lightIcon} />
             }
-        </button>
+        </Button>
     );
 });
 

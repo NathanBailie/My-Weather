@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Button } from 'shared/ui/Button/Button';
 
 export const LangSwitcher = memo(() => {
     const { t, i18n } = useTranslation();
@@ -12,11 +13,11 @@ export const LangSwitcher = memo(() => {
     };
 
     return (
-        <button
+        <Button
             className={classNames('', {}, [])}
             onClick={changeLnguage}>
             {t('Language')}
-        </button>
+        </Button>
     );
 });
 
