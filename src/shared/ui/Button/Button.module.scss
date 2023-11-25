@@ -10,12 +10,15 @@
     outline: none;
 }
 
-.themeBtn {
-    width: var(--theme-switcher-width);
-}
+.switcher {
 
-.langBtn {
-    width: var(--lang-switcher-width);
+    &_lang {
+        width: var(--lang-switcher-width);
+    }
+
+    &_theme {
+        width: var(--theme-switcher-width);
+    }
 }
 
 .font {

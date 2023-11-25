@@ -12,11 +12,19 @@ export enum ButtonFonts {
     FONT_XL = 'font_xl'
 }
 
+export enum ButtonSizes {
+    SWITCHER_THEME = 'switcher_theme',
+    SWITCHER_LANG = 'switcher_lang',
+}
+
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string
     theme?: ButtonTheme
     children?: ReactNode
     font?: string
+    width?: string
+    height?: string
+    size?: string
 }
 
 export const Button = memo((props: ButtonProps) => {
@@ -25,12 +33,15 @@ export const Button = memo((props: ButtonProps) => {
         theme = ButtonTheme.CLEAR,
         children,
         font = ButtonFonts.FONT_L,
+        size = ButtonSizes.SWITCHER_LANG,
         ...otherProps
     } = props;
 
+    const aditionalClasses = [cls[theme], cls[font], cls[size]];
+
     return (
         <button
-            className={classNames(cls.Button, {}, [className, cls[theme], cls[font]])}
+            className={classNames(cls.Button, {}, [className, ...aditionalClasses])}
             type="button"
             {...otherProps}
         >
