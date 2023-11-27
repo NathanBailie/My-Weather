@@ -1,4 +1,6 @@
 @import './reset';
+@import './themes/light';
+@import './themes/dark';
 @import '../variables/global';
 
 /* stylelint-disable */
@@ -8,9 +10,6 @@ html {
 
 .app {
     font-family: sans-serif;
-    max-width: 1200px;
-    border: 1px solid orange;
-    margin: 25px auto 0;
-    padding: 15px;
-    border-radius: 14px;
+    width: 100vw;
+    height: 100vh;
 }
