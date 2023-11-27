@@ -1,7 +1,16 @@
 .light {
-    --header-bg-color: #F5F4FB;
-    --box-shadow: 0px 0px 10px 10px rgb(0 17 255 / 16% );
-    --window-bg-color: #F5F4FB;
-    --card-bg-color: linear-gradient(180deg, #00057a 0.00%, #721c87 100.00%);
     --text-color: #172231;
+    
+    // header
+    --header-bg-color: #edd09c;
+    
+    // content page
+    --content-page-bg-color: linear-gradient(180deg, #FFE4B5 0.00%, #c4984c 100.00%);
+    --plus-bg: #fff9e5;
+    --first-plus-bg: linear-gradient(270deg, #23780e 0%, #48fb75 100%);
+    --second-plus-bg: linear-gradient(180deg, #23780e 0%, #48fb75 100%);
+    
+    // forecast card
+    --box-shadow: 0px 0px 10px 10px rgb(0 17 255 / 16% );
+    --card-bg-color: linear-gradient(180deg, #d7a246 0.00%, #ebc482 100.00%);
 }

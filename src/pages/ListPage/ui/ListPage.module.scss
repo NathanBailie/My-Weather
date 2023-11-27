@@ -1,0 +1,6 @@
+.ListPage {
+    max-width: 100vw;
+    height: calc(100vh - var(--header-height));
+    background: var(--content-page-bg-color);
+    padding: 25px;
+}
