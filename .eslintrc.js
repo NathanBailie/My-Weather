@@ -65,7 +65,8 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'prefer-const': 'off',
         "@typescript-eslint/no-floating-promises": "warn",
-        "@typescript-eslint/consistent-type-imports": "warn"
+        "@typescript-eslint/consistent-type-imports": "warn",
+        "@typescript-eslint/promise-function-async": "warn"
     },
     "globals": {
         IS_DEV: true,
