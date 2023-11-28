@@ -17,6 +17,7 @@ import { Input } from 'shared/ui/Input/Input';
 import cls from './Modal.module.scss';
 import type { AppDispatch } from 'app/providers/StoreProvider/config/store';
 import { ErrorText } from '../ErrorText/ErrorText';
+import { Loader } from '../Loader/Loader';
 
 export const Modal = memo(() => {
     const { t } = useTranslation();
@@ -77,6 +78,7 @@ export const Modal = memo(() => {
                             &#10149;
                         </button>
                     </div>
+                    {citiesLoadingStatus === 'loading' ? <Loader /> : null}
                     <ErrorText
                         error={citiesError}
                         text={citiesErrorText} />

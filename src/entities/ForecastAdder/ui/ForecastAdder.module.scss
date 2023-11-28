@@ -52,14 +52,6 @@
         
         &:hover {
             transform: scale(1.05);
-
-            :first-child {
-                transform: rotate(-90deg);
-            }
-            
-            :last-child {
-                transform: translateX(50%) rotate(90deg);
-            }
         }
         
         &:active {

@@ -57,6 +57,7 @@ export const forecastsSlice = createSlice({
                 state.citiesLoadingStatus = 'succeeded';
                 state.citiesError = false;
                 state.cities = sortCities(action.payload);
+
                 if (state.cities.length === 0) {
                     state.citiesError = true;
                     state.citiesErrorText = 'WrongName';
