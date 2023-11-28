@@ -1,5 +1,7 @@
 /* stylelint-disable */
 :root {
+    --windows-border-radius: 16px;
+    
     // fonts
     --font-family-main:  sans-serif;
     --font-size-m: 16px;
@@ -17,5 +19,5 @@
     
     // switchers widths
     --theme-switcher-width: 50px;
-    --lang-switcher-width: 50px;
+    --lang-switcher-width: 50px;   
 }

@@ -1,10 +1,10 @@
 .ForecastAdder {
     max-width: 450px;
-    max-height: 700px;
+    min-height: 700px;
     position: relative;
     background: var(--card-bg-color);
     box-shadow: var(--box-shadow);
-    border-radius: 16px;
+    border-radius: var(--windows-border-radius);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,7 +32,7 @@
         
         span {
             position: absolute;
-            border-radius: 14px;
+            border-radius: 16px;
             transition: all 0.3s linear;
 
             &:first-child {

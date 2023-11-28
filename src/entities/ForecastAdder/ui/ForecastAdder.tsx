@@ -5,14 +5,13 @@ import cityDay from 'shared/assets/icons/city_day.png';
 import cityNight from 'shared/assets/icons/city_night.png';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { useDispatch } from 'react-redux';
-import type { AppDispatch } from 'app/providers/StoreProvider/config/store';
-import { fetchCities } from '../model/services/fetchCities';
+import { forecastsActions } from '../model/slices/forecastsSlice';
 import cls from './ForecastAdder.module.scss';
 
 export const ForecastAdder = memo(() => {
     const { t } = useTranslation();
     const { theme } = useTheme();
-    const dispatch = useDispatch<AppDispatch>();
+    const dispatch = useDispatch();
 
     const image = theme === 'light' ? cityDay : cityNight;
 
@@ -22,7 +21,7 @@ export const ForecastAdder = memo(() => {
             <div
                 className={classNames(cls.ForecastAdder__plus)}
                 onClick={() => {
-                    // dispatch(fetchCities('Kazan'))
+                    dispatch(forecastsActions.openModal())
                 }}
             >
                 <span></span>

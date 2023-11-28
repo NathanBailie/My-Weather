@@ -6,11 +6,17 @@
     
     // content page
     --content-page-bg-color: linear-gradient(180deg, #B290FF 0.00%, #2E1D65 100.00%);
+    
+    // card
     --plus-bg: #39518A;
     --first-plus-bg: linear-gradient(270deg, #faa 0.00%, #fff99d 100.00%);
     --second-plus-bg: linear-gradient(180deg, #faa 0.00%, #fff99d 100.00%);
 
-    // forecast card
+    // cards
     --box-shadow: 0px 0px 10px 10px rgb(255 255 255 / 20% );
     --card-bg-color: linear-gradient(180deg, #00057a 0.00%, #721c87 100.00%);
+    
+    // modal window
+    --modal-window-bg: linear-gradient(180deg, #B290FF 0.00%, #2E1D65 100.00%);
+    --modal-button-color: #142443;
 }

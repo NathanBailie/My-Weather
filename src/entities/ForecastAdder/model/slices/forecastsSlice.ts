@@ -4,6 +4,8 @@ import { fetchCities } from '../services/fetchCities';
 import { sortCities } from '../lib/sortCities';
 
 const initialState: ForecastsSchema = {
+    modalIsOpen: false,
+    modalText: null,
     cities: [],
     citiesLoadingStatus: 'idle',
     citiesLoadingError: false,
@@ -16,7 +18,14 @@ const initialState: ForecastsSchema = {
 export const forecastsSlice = createSlice({
     name: 'forecasts',
     initialState,
-    reducers: {},
+    reducers: {
+        openModal: (state) => {
+            state.modalIsOpen = true;
+        },
+        closeModal: (state) => {
+            state.modalIsOpen = false;
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchCities.pending, (state) => {

@@ -1,0 +1,64 @@
+.Modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: rgb(0 0 0 / 60%);
+    
+    &__window {
+        position: absolute;
+        width: 400px;
+        min-height: 500px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: var(--modal-window-bg);
+        border-radius: var(--windows-border-radius);
+        transform: scale(0.5);
+        transition: 0.3s transform;
+        box-shadow: var(--box-shadow);
+        
+        button {
+            position: absolute;
+            bottom: 45px;
+            padding: 7px 20px;
+            border-radius: 8px;
+            background: var(--modal-button-color);
+            color: var(--text-color);
+            font: var(--font-l);
+            cursor: pointer;
+            user-select: none;
+            
+            &:hover {
+                transform: scale(1.05);
+            }
+
+            &:active {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+        }
+    }
+}
+
+.opened {
+    pointer-events: auto;
+    opacity: 1;
+    z-index: 100;
+
+    .Modal__window {
+        transform: scale(1);
+    }
+}
+
+.isClosing {
+
+    .Modal__window {
+        transform: scale(0.2);
+    }
+}
