@@ -1,0 +1,17 @@
+.ErrorText {
+    color: red;
+    font: var(--font-l);
+    animation: show 1s 1 linear;
+    text-align: center;
+    margin-top: 5px;
+}
+@keyframes show {
+
+    from {
+        opacity: 0;
+    }
+    
+    to {
+        opacity: 1;
+    }
+}

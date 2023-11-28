@@ -2,17 +2,17 @@ import type { structuredCitiesData } from '../lib/sortCities';
 
 export interface ForecastsSchema {
     modalIsOpen: boolean
-    modalText: string | null
     inputValue: string
     cities: structuredCitiesData[]
     citiesLoadingStatus: 'idle' | 'loading' | 'succeeded' | 'failed'
-    citiesLoadingError: boolean
-    citiesLoadingErrorText: string | null
+    citiesError: boolean
+    citiesErrorText: CitiesErrorsText
     data: any
     status: 'idle' | 'loading' | 'succeeded' | 'failed'
-    dataLoadingError: boolean
-    dataLoadingErrorText: string | null
+    dataError: boolean
+    dataErrorText: string
 }
 
-export type ErrorField = 'citiesLoadingError' | 'dataLoadingError';
-export type ErrorTextField = 'citiesLoadingErrorText' | 'dataLoadingErrorText';
+export type CitiesErrorsText = 'EmptyField' | 'LongCityName' | 'WrongName' | 'WrongRequest' | '';
+export type ErrorField = 'citiesError' | 'dataError';
+export type ErrorTextField = 'citiesErrorText' | 'dataErrorText';

@@ -1,23 +1,22 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
-import type { ErrorField, ErrorTextField, ForecastsSchema } from '../types/ForecastsSchema';
+import type { CitiesErrorsText, ErrorField, ErrorTextField, ForecastsSchema } from '../types/ForecastsSchema';
 import { fetchCities } from '../services/fetchCities';
 import { sortCities } from '../lib/sortCities';
 
 const initialState: ForecastsSchema = {
     modalIsOpen: false,
-    modalText: null,
 
     inputValue: '',
 
     cities: [],
     citiesLoadingStatus: 'idle',
-    citiesLoadingError: false,
-    citiesLoadingErrorText: null,
+    citiesError: false,
+    citiesErrorText: '',
 
     data: [],
     status: 'idle',
-    dataLoadingError: false,
-    dataLoadingErrorText: null
+    dataError: false,
+    dataErrorText: ''
 };
 
 export const forecastsSlice = createSlice({
@@ -29,6 +28,12 @@ export const forecastsSlice = createSlice({
         },
         closeModal: (state) => {
             state.modalIsOpen = false;
+            state.inputValue = '';
+            state.cities = [];
+            state.citiesError = false;
+            state.citiesErrorText = '';
+            state.dataError = false;
+            state.dataError = false;
         },
         changeInputValue: (state, action) => {
             state.inputValue = action.payload;
@@ -37,7 +42,7 @@ export const forecastsSlice = createSlice({
             const { fieldName, condition } = action.payload;
             state[`${fieldName}`] = condition;
         },
-        changeErrorsText: (state, action: PayloadAction<{ fieldName: ErrorTextField, text: string }>) => {
+        changeErrorsText: (state, action: PayloadAction<{ fieldName: ErrorTextField, text: CitiesErrorsText }>) => {
             const { fieldName, text } = action.payload;
             state[`${fieldName}`] = text;
         }
@@ -46,22 +51,21 @@ export const forecastsSlice = createSlice({
         builder
             .addCase(fetchCities.pending, (state) => {
                 state.citiesLoadingStatus = 'loading';
-                state.citiesLoadingError = false;
+                state.citiesError = false;
             })
             .addCase(fetchCities.fulfilled, (state, action) => {
                 state.citiesLoadingStatus = 'succeeded';
-                state.citiesLoadingError = false;
+                state.citiesError = false;
                 state.cities = sortCities(action.payload);
-
                 if (state.cities.length === 0) {
-                    state.citiesLoadingError = true;
-                    state.citiesLoadingErrorText = 'InspectYourRequest';
+                    state.citiesError = true;
+                    state.citiesErrorText = 'WrongName';
                 }
             })
             .addCase(fetchCities.rejected, (state, action) => {
                 state.citiesLoadingStatus = 'failed';
-                state.citiesLoadingError = true;
-                state.citiesLoadingErrorText = 'MistakeRetryYourRequest';
+                state.citiesError = true;
+                state.citiesErrorText = 'WrongRequest';
             });
     }
 });

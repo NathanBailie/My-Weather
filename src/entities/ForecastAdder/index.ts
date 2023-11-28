@@ -5,9 +5,11 @@ export type { ForecastsSchema, ErrorField, ErrorTextField } from './model/types/
 
 export {
     getModalIsOpen,
-    getModalText,
     getInputValue,
-    getCitiesLoadingStatus
+    getCitiesLoadingStatus,
+    getCitiesError,
+    getCitiesErrorText,
+    getDataErrorText
 } from './model/selectors/getForecastsSelectors';
 
 export {

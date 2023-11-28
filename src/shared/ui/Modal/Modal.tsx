@@ -5,16 +5,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
     forecastsActions,
     getCitiesLoadingStatus,
+    getCitiesError,
     getInputValue,
     getModalIsOpen,
-    getModalText,
-    useValidateInput
+    useValidateInput,
+    getCitiesErrorText
 } from 'entities/ForecastAdder';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
 import cls from './Modal.module.scss';
 import type { AppDispatch } from 'app/providers/StoreProvider/config/store';
+import { ErrorText } from '../ErrorText/ErrorText';
 
 export const Modal = memo(() => {
     const { t } = useTranslation();
@@ -27,9 +29,10 @@ export const Modal = memo(() => {
 
     const dispatch = useDispatch<AppDispatch>();
     const modalIsOpen = useSelector(getModalIsOpen);
-    const modalText = useSelector(getModalText);
     const inputValue = useSelector(getInputValue);
     const citiesLoadingStatus = useSelector(getCitiesLoadingStatus);
+    const citiesError = useSelector(getCitiesError);
+    const citiesErrorText = useSelector(getCitiesErrorText);
 
     const onCloseModal = useCallback(() => {
         dispatch(forecastsActions.closeModal());
@@ -64,18 +67,25 @@ export const Modal = memo(() => {
                 <div className={cls.Modal__window} onClick={(e) => { onContentClick(e) }}>
                     <h2>{t('AddCity')}</h2>
                     <div className={cls.Modal__inputWrapper}>
-                        <Input inputValue={inputValue} placeholder={t('TypeYourCity')} />
+                        <Input
+                            inputValue={inputValue}
+                            placeholder={t('TypeYourCity')} />
                         <button
                             onClick={() => { validateInput() }}
                             disabled={citiesLoadingStatus === 'loading'}
                         >
-                            &#10149;</button>
+                            &#10149;
+                        </button>
                     </div>
+                    <ErrorText
+                        error={citiesError}
+                        text={citiesErrorText} />
                     <button
                         className={classNames(cls.Modal__closeBtn, mods, [])}
                         onClick={closeHandler}
                     >
-                        Close</button>
+                        Close
+                    </button>
                 </div>
             </div>
         </Portal >

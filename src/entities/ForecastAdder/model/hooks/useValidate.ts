@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import type { AppDispatch } from 'app/providers/StoreProvider/config/store';
 import { getInputValue } from '../selectors/getForecastsSelectors';
-import type { ErrorField, ErrorTextField } from '../types/ForecastsSchema';
+import type { CitiesErrorsText, ErrorField, ErrorTextField } from '../types/ForecastsSchema';
 import { forecastsActions } from '../slices/forecastsSlice';
 import { fetchCities } from '../services/fetchCities';
 
@@ -14,7 +14,7 @@ const useValidateInput = (): useValidateTypes => {
     const inputValue = useSelector(getInputValue);
 
     const validateInput = (): void => {
-        const validateResult = validateValue(inputValue, 'citiesLoadingError');
+        const validateResult = validateValue(inputValue, 'citiesError');
 
         if (!validateResult) {
             dispatch(fetchCities(inputValue));
@@ -24,13 +24,13 @@ const useValidateInput = (): useValidateTypes => {
     function validateValue(value: string, errorField: ErrorField): boolean {
         if (value === '') {
             changErrorsFieldCondition(errorField, true);
-            changErrorsFieldsText('citiesLoadingErrorText', 'EmptyField');
+            changErrorsFieldsText('citiesErrorText', 'EmptyField');
             return true;
         }
 
         if (value.length > 70) {
             changErrorsFieldCondition(errorField, true);
-            changErrorsFieldsText('citiesLoadingErrorText', 'LongCityName');
+            changErrorsFieldsText('citiesErrorText', 'LongCityName');
             return true;
         }
 
@@ -42,7 +42,7 @@ const useValidateInput = (): useValidateTypes => {
         dispatch(forecastsActions.changeErrorsCondition({ fieldName, condition }))
     }
 
-    function changErrorsFieldsText(fieldName: ErrorTextField, text: string): void {
+    function changErrorsFieldsText(fieldName: ErrorTextField, text: CitiesErrorsText): void {
         dispatch(forecastsActions.changeErrorsText({ fieldName, text }))
     }
 
