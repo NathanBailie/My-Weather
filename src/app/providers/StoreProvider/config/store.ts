@@ -1,6 +1,8 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { forecastsReducer } from 'entities/ForecastAdder';
 
 const rootReducer = combineReducers({
+    forecasts: forecastsReducer
 });
 
 export const store = configureStore({
