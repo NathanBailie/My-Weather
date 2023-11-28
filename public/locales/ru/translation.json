@@ -4,5 +4,6 @@
     "LightTheme": "Светлая тема",
     "DarkTheme": "Темная тема",
     "MyWeather": "Моя Погода",
-    "AddCity": "Добавить город"
+    "AddCity": "Добавить город",
+    "TypeYourCity": "Введите ваш город"
 }
