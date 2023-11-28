@@ -11,7 +11,6 @@ interface ErrorTextProps {
 export const ErrorText = memo((props: ErrorTextProps) => {
     const { error, text } = props;
     const { t } = useTranslation();
-    console.log(error, text);
 
     if (error && text) {
         return (

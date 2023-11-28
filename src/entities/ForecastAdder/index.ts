@@ -6,6 +6,7 @@ export type { ForecastsSchema, ErrorField, ErrorTextField } from './model/types/
 export {
     getModalIsOpen,
     getInputValue,
+    getCityList,
     getCitiesLoadingStatus,
     getCitiesError,
     getCitiesErrorText,

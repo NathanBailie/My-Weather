@@ -11,6 +11,7 @@ export interface structuredCitiesData {
     id: number
     city: string
     country: string
+    state?: string
     lat: number
     lon: number
 }
@@ -21,6 +22,7 @@ export function sortCities(array: gottenCitiesData[]): structuredCitiesData[] {
             id: index,
             city: item.name,
             country: item.country,
+            state: item.state,
             lat: item.lat,
             lon: item.lon
         }

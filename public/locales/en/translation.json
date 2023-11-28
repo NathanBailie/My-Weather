@@ -9,5 +9,9 @@
     "EmptyField": "empty field",
     "LongCityName": "too long city name",
     "WrongName": "wrong city name",
-    "WrongRequest": "wrong request, retry or try later"
+    "WrongRequest": "wrong request, retry or try later",
+    "City": "City",
+    "CountryCode": "Country Code",
+    "State": "State",
+    "ChooseYourCity": "Выберите свой город"
 }

@@ -3,7 +3,7 @@ import type { structuredCitiesData } from '../lib/sortCities';
 export interface ForecastsSchema {
     modalIsOpen: boolean
     inputValue: string
-    cities: structuredCitiesData[]
+    cities: structuredCitiesData[] | []
     citiesLoadingStatus: 'idle' | 'loading' | 'succeeded' | 'failed'
     citiesError: boolean
     citiesErrorText: CitiesErrorsText

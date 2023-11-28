@@ -18,6 +18,7 @@ import cls from './Modal.module.scss';
 import type { AppDispatch } from 'app/providers/StoreProvider/config/store';
 import { ErrorText } from '../ErrorText/ErrorText';
 import { Loader } from '../Loader/Loader';
+import { CityList } from 'entities/CityList';
 
 export const Modal = memo(() => {
     const { t } = useTranslation();
@@ -78,10 +79,10 @@ export const Modal = memo(() => {
                             &#10149;
                         </button>
                     </div>
+                    <ErrorText error={citiesError} text={citiesErrorText} />
                     {citiesLoadingStatus === 'loading' ? <Loader /> : null}
-                    <ErrorText
-                        error={citiesError}
-                        text={citiesErrorText} />
+                    {citiesLoadingStatus === 'succeeded' ? <CityList /> : null}
+
                     <button
                         className={classNames(cls.Modal__closeBtn, mods, [])}
                         onClick={closeHandler}

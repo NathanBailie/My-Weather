@@ -7,9 +7,16 @@ const initialState: ForecastsSchema = {
     modalIsOpen: false,
 
     inputValue: '',
-
     cities: [],
+    // cities: [
+    //     { id: 0, city: 'Kazan', country: 'RU', lat: 55.7823547, lon: 49.1242266 },
+    //     { id: 1, city: 'Kazan', country: 'RU', lat: 55.7823547, lon: 49.1242266 },
+    //     { id: 2, city: 'Kahramankazan', country: 'TR', lat: 40.2054445, lon: 32.6813148 },
+    //     { id: 3, city: 'Dərəli', country: 'AZ', lat: 39.1802151, lon: 46.4433082 },
+    //     { id: 4, city: 'Qazançı', country: 'AZ', lat: 39.1853952, lon: 46.4366107 }
+    // ],
     citiesLoadingStatus: 'idle',
+    // citiesLoadingStatus: 'succeeded',
     citiesError: false,
     citiesErrorText: '',
 

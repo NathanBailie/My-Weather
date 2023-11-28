@@ -4,6 +4,7 @@ export const getModalIsOpen = (state: StateSchema) => state.forecasts.modalIsOpe
 
 export const getInputValue = (state: StateSchema) => state.forecasts.inputValue;
 
+export const getCityList = (state: StateSchema) => state.forecasts.cities;
 export const getCitiesLoadingStatus = (state: StateSchema) => state.forecasts.citiesLoadingStatus;
 export const getCitiesError = (state: StateSchema) => state.forecasts.citiesError;
 export const getCitiesErrorText = (state: StateSchema) => state.forecasts.citiesErrorText;
