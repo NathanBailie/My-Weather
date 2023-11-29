@@ -4,15 +4,14 @@ import { useTranslation } from 'react-i18next';
 import cls from './ErrorText.module.scss';
 
 interface ErrorTextProps {
-    error?: boolean
     text?: string
 }
 
 export const ErrorText = memo((props: ErrorTextProps) => {
-    const { error, text } = props;
+    const { text } = props;
     const { t } = useTranslation();
 
-    if (error && text) {
+    if (text) {
         return (
             <span className={classNames(cls.ErrorText, {}, [])}>
                 {t(text)}

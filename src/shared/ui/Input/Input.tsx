@@ -1,10 +1,11 @@
-import { Mods, classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, type ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { type AppDispatch } from 'app/providers/StoreProvider/config/store';
+import { modalAndInputActions } from 'app/redux';
+import useValidateInput from 'app/redux/model/hooks/useValidate';
+import { getCitiesLoadingStatus } from 'app/redux/model/selectors/getCitiesSelectors';
 import cls from './Input.module.scss';
-import { forecastsActions, getCitiesLoadingStatus, useValidateInput } from 'entities/ForecastAdder';
-import { fetchCities } from 'entities/ForecastAdder/model/services/fetchCities';
-import type { AppDispatch } from 'app/providers/StoreProvider/config/store';
 
 interface InputProps {
     placeholder: string
@@ -13,13 +14,12 @@ interface InputProps {
 
 export const Input = memo((props: InputProps) => {
     const { inputValue, placeholder } = props;
-    const { validateInput } = useValidateInput();
     const dispatch = useDispatch<AppDispatch>();
-
+    const { validateInput } = useValidateInput();
     const citiesLoadingStatus = useSelector(getCitiesLoadingStatus);
 
     const onChangeInputValue = (e: ChangeEvent<HTMLInputElement>) => {
-        dispatch(forecastsActions.changeInputValue(e.target.value));
+        dispatch(modalAndInputActions.changeInputValue(e.target.value));
     };
 
     const keyPressHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {

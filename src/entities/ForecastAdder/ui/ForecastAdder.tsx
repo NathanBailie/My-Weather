@@ -1,11 +1,11 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import cityDay from 'shared/assets/icons/city_day.png';
-import cityNight from 'shared/assets/icons/city_night.png';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { useDispatch } from 'react-redux';
-import { forecastsActions } from '../model/slices/forecastsSlice';
+import cityDay from 'shared/assets/icons/city_day.png';
+import cityNight from 'shared/assets/icons/city_night.png';
+import { modalAndInputActions } from 'app/redux';
 import cls from './ForecastAdder.module.scss';
 
 export const ForecastAdder = memo(() => {
@@ -21,7 +21,7 @@ export const ForecastAdder = memo(() => {
             <div
                 className={classNames(cls.ForecastAdder__plus)}
                 onClick={() => {
-                    dispatch(forecastsActions.openModal())
+                    dispatch(modalAndInputActions.openModal())
                 }}
             >
                 <span></span>

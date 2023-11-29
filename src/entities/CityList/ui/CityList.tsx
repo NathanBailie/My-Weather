@@ -2,12 +2,12 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
-import { getCityList } from 'entities/ForecastAdder';
+import { getCities } from 'app/redux/model/selectors/getCitiesSelectors';
 import cls from './CityList.module.scss';
 
 export const CityList = memo(() => {
     const { t } = useTranslation();
-    const cityList = useSelector(getCityList);
+    const cityList = useSelector(getCities);
 
     const list = cityList.map((item, index) => {
         const { id, city, country, state } = item;

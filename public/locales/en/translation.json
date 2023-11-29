@@ -11,7 +11,7 @@
     "WrongName": "wrong city name",
     "WrongRequest": "wrong request, retry or try later",
     "City": "City",
-    "CountryCode": "Country Code",
+    "CountryCode": "Country code",
     "State": "State",
-    "ChooseYourCity": "Выберите свой город"
+    "ChooseYourCity": "Choose your city"
 }

@@ -1,4 +1,4 @@
-export interface gottenCitiesData {
+export interface CitiesData {
     name: string
     local_names: Record<string, string>
     lat: number
@@ -16,7 +16,7 @@ export interface structuredCitiesData {
     lon: number
 }
 
-export function sortCities(array: gottenCitiesData[]): structuredCitiesData[] {
+export function sortCities(array: CitiesData[]): structuredCitiesData[] {
     const structuredData = array.map((item, index) => {
         return {
             id: index,
