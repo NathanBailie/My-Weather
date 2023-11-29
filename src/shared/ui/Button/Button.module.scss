@@ -1,10 +1,15 @@
 .Button {
     cursor: pointer;
     user-select: none;
+    transition: all 0.1s;
+    
+    &:disabled {
+        opacity: 0.7;
+        transform: none;
+    }
 }
 
 .clear {
-    padding: 0;
     border: none;
     background: none;
     outline: none;
@@ -14,10 +19,12 @@
 
     &_lang {
         width: var(--lang-switcher-width);
+        color: var(--text-color);
     }
 
     &_theme {
         width: var(--theme-switcher-width);
+        height: 50px;
     }
 }
 
@@ -33,5 +40,21 @@
 
     &_xl {
         font: var(--font-xl);
+    }
+}
+
+.inputButton {
+    height: 100%;
+    padding: 0 5px;
+    border-radius: 0 16px 16px 0;
+    background: white;
+        
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &:active {
+        transform: scale(1);
+        opacity: 0.8;
     }
 }

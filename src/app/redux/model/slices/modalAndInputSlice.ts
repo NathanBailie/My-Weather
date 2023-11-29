@@ -20,7 +20,7 @@ export const modalAndInputSlice = createSlice({
         changeInputValue: (state, action) => {
             state.inputValue = action.payload;
         },
-        cleanInputValue: (state, action) => {
+        cleanInputValue: (state) => {
             state.inputValue = '';
         }
     }

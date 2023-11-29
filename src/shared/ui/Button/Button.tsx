@@ -12,11 +12,6 @@ export enum ButtonFonts {
     FONT_XL = 'font_xl'
 }
 
-export enum ButtonSizes {
-    SWITCHER_THEME = 'switcher_theme',
-    SWITCHER_LANG = 'switcher_lang',
-}
-
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string
     theme?: ButtonTheme
@@ -24,24 +19,22 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     font?: string
     width?: string
     height?: string
-    size?: string
 }
 
 export const Button = memo((props: ButtonProps) => {
     const {
-        className,
+        className = '',
         theme = ButtonTheme.CLEAR,
         children,
         font = ButtonFonts.FONT_L,
-        size = ButtonSizes.SWITCHER_LANG,
         ...otherProps
     } = props;
 
-    const aditionalClasses = [cls[theme], cls[font], cls[size]];
+    const aditionalClasses = [cls[theme], cls[font], cls[className]];
 
     return (
         <button
-            className={classNames(cls.Button, {}, [className, ...aditionalClasses])}
+            className={classNames(cls.Button, {}, aditionalClasses)}
             type="button"
             {...otherProps}
         >

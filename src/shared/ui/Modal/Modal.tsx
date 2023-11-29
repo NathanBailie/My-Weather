@@ -9,7 +9,7 @@ import { Input } from 'shared/ui/Input/Input';
 import { ErrorText } from '../ErrorText/ErrorText';
 import { Loader } from '../Loader/Loader';
 import { CityList } from 'entities/CityList';
-import { getInputValue, getModalIsOpen, modalAndInputActions } from 'app/redux';
+import { citiesActions, getInputValue, getModalIsOpen, modalAndInputActions } from 'app/redux';
 import {
     getCitiesError,
     getCitiesErrorText,
@@ -17,6 +17,7 @@ import {
 } from 'app/redux/model/selectors/getCitiesSelectors';
 import useValidateInput from 'app/redux/model/hooks/useValidate';
 import cls from './Modal.module.scss';
+import { Button, ButtonFonts } from '../Button/Button';
 
 export const Modal = memo(() => {
     const { t } = useTranslation();
@@ -37,6 +38,8 @@ export const Modal = memo(() => {
 
     const onCloseModal = useCallback(() => {
         dispatch(modalAndInputActions.closeModal());
+        dispatch(modalAndInputActions.cleanInputValue());
+        dispatch(citiesActions.resetCititesData());
     }, [dispatch]);
 
     const onContentClick = (e: any) => {
@@ -71,12 +74,14 @@ export const Modal = memo(() => {
                         <Input
                             inputValue={inputValue}
                             placeholder={t('TypeYourCity')} />
-                        <button
+                        <Button
                             onClick={() => { validateInput() }}
                             disabled={citiesLoadingStatus === 'loading'}
+                            className='inputButton'
+                            font={ButtonFonts.FONT_L}
                         >
                             &#10149;
-                        </button>
+                        </Button>
                     </div>
                     {citiesError ? <ErrorText text={citiesErrorText} /> : null}
                     {citiesLoadingStatus === 'loading' ? <Loader /> : null}

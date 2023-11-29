@@ -20,7 +20,7 @@ export const citiesSlice = createSlice({
         changeErrorsText: (state, action) => {
             state.citiesErrorText = action.payload;
         },
-        resetCititesData: (state, action) => {
+        resetCititesData: (state) => {
             state.cities = [];
             state.citiesError = false;
             state.citiesErrorText = '';
