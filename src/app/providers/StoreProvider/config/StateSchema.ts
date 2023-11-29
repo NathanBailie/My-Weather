@@ -1,6 +1,7 @@
-import type { CitiesSchema, ModalAndInputSchema } from 'app/redux'
+import type { CitiesSchema, ForecastSchema, ModalAndInputSchema } from 'app/redux'
 
 export interface StateSchema {
     modalAndInput: ModalAndInputSchema
     cities: CitiesSchema
+    forecast: ForecastSchema
 }
