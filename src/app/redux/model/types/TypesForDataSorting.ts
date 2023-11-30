@@ -23,6 +23,7 @@ export interface AveragedObject {
 }
 
 export interface FinalObject {
+    id?: string
     name?: string
     country?: string
     lat?: number

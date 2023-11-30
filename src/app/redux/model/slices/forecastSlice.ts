@@ -2,9 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 import { type ForecastSchema } from '../types/ForecastSchema';
 import { fetchForecast } from '../services/fetchForecast';
 import { sortData } from '../lib/sortData';
+import { WEATHER_FORECAST_KEY } from 'shared/const/localstorage';
 
 const initialState: ForecastSchema = {
-    data: {},
+    data: [],
     loadingStatus: 'idle',
     error: false,
     errorText: ''
@@ -19,6 +20,11 @@ export const forecastSlice = createSlice({
         },
         changeErrorsText: (state, action) => {
             state.errorText = action.payload;
+        },
+        getForecastDataFromLocalstore: (state) => {
+            const storedForecastJSON = localStorage.getItem(WEATHER_FORECAST_KEY);
+            const storedForecastData = storedForecastJSON && JSON.parse(storedForecastJSON);
+            state.data = storedForecastData;
         }
     },
     extraReducers: (builder) => {
@@ -30,7 +36,8 @@ export const forecastSlice = createSlice({
             .addCase(fetchForecast.fulfilled, (state, action) => {
                 state.loadingStatus = 'succeeded';
                 state.error = false;
-                state.data = sortData(action.payload);
+                state.data = [...state.data, sortData(action.payload)];
+                localStorage.setItem(WEATHER_FORECAST_KEY, JSON.stringify(state.data))
             })
             .addCase(fetchForecast.rejected, (state, action) => {
                 state.loadingStatus = 'failed';

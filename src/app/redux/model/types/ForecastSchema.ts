@@ -2,7 +2,7 @@ import { type LoadingStatus } from './LoadingStatus';
 import { type FinalObject } from './TypesForDataSorting';
 
 export interface ForecastSchema {
-    data: FinalObject
+    data: FinalObject[]
     loadingStatus: LoadingStatus
     error: boolean
     errorText: string
