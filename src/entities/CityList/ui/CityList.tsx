@@ -1,26 +1,34 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getCities } from 'app/redux/model/selectors/getCitiesSelectors';
+import { type AppDispatch } from 'app/providers/StoreProvider/config/store';
 import cls from './CityList.module.scss';
+import { Button, ButtonFonts } from 'shared/ui/Button/Button';
+import { fetchForecast } from 'app/redux';
 
 export const CityList = memo(() => {
     const { t } = useTranslation();
+    const dispatch = useDispatch<AppDispatch>();
+
     const cityList = useSelector(getCities);
 
     const list = cityList.map((item, index) => {
-        const { id, city, country, state } = item;
+        const { id, city, country, state, lat, lon } = item;
         const stateTitle = state ? `, ${t('State')}` : '';
 
         return (
-            <button
-                className={classNames(cls.CityList__item, {}, [])}
+            <Button
+                className='city'
+                font={ButtonFonts.FONT_L}
                 key={id}
                 title={`${t('City')}, ${t('CountryCode')}${stateTitle}`}
+                onClick={() => { dispatch(fetchForecast({ lat, lon })) }}
             >
                 {`${city}, ${country}` + `${state ? `, ${state}` : ''}`}
-            </button>
+
+            </Button>
         )
     })
 

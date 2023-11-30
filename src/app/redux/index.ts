@@ -14,3 +14,6 @@ export {
     getForecastError,
     getForecastErrorText
 } from './model/selectors/getForecastSelectors';
+
+export { fetchCities } from './model/services/fetchCities';
+export { fetchForecast } from './model/services/fetchForecast';

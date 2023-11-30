@@ -11,27 +11,6 @@
         font-weight: bold;
         margin: 15px 0;
     }
-    
-    &__item {
-        font: var(--font-l);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        border: none;
-        border-radius: 8px;
-        padding: 5px 10px;
-        
-        &:hover {
-            transform: scale(1.01);
-            background: white;
-        }
-        
-        &:active {
-            transform: scale(0.99);
-            opacity: 0.8
-        }
-    }
 }
 @keyframes show {
 

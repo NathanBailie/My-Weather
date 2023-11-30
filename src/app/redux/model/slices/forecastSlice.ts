@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { type ForecastSchema } from '../types/ForecastSchema';
 import { fetchForecast } from '../services/fetchForecast';
+import { sortData } from '../lib/sortData';
 
 const initialState: ForecastSchema = {
     data: [],
@@ -29,6 +30,8 @@ export const forecastSlice = createSlice({
             .addCase(fetchForecast.fulfilled, (state, action) => {
                 state.loadingStatus = 'succeeded';
                 state.error = false;
+                state.data = action.payload;
+                sortData(action.payload);
             })
             .addCase(fetchForecast.rejected, (state, action) => {
                 state.loadingStatus = 'failed';

@@ -59,3 +59,20 @@
         opacity: 0.8;
     }
 }
+
+.city {
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    color: var(--text-color);
+    
+        
+    &:hover {
+        background: var(--city-hover-bg);
+    }
+        
+    &:active {
+        opacity: 0.8;
+        transform: scale(0.99);
+    }
+}
