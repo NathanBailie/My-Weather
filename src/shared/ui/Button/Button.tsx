@@ -7,9 +7,8 @@ export enum ButtonTheme {
 }
 
 export enum ButtonFonts {
-    FONT_M = 'font_m',
-    FONT_L = 'font_l',
-    FONT_XL = 'font_xl'
+    FONT_24 = 'font_24',
+    FONT_30 = 'font_30'
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -26,7 +25,7 @@ export const Button = memo((props: ButtonProps) => {
         className = '',
         theme = ButtonTheme.CLEAR,
         children,
-        font = ButtonFonts.FONT_L,
+        font = ButtonFonts.FONT_24,
         ...otherProps
     } = props;
 

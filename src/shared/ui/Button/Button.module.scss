@@ -30,16 +30,12 @@
 
 .font {
 
-    &_m {
-        font: var(--font-m);
+    &_24 {
+        font: var(--font-24);
     }
 
-    &_l {
-        font: var(--font-l);
-    }
-
-    &_xl {
-        font: var(--font-xl);
+    &_30 {
+        font: var(--font-30);
     }
 }
 

@@ -78,7 +78,7 @@ export const Modal = memo(() => {
                             onClick={() => { validateInput() }}
                             disabled={citiesLoadingStatus === 'loading'}
                             className='inputButton'
-                            font={ButtonFonts.FONT_L}
+                            font={ButtonFonts.FONT_24}
                         >
                             &#10149;
                         </Button>

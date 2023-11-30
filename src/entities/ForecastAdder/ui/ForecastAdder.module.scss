@@ -1,6 +1,6 @@
 .ForecastAdder {
-    max-width: 450px;
-    min-height: 700px;
+    width: var(--card-max-width);
+    height: var(--card-height);
     position: relative;
     background: var(--card-bg-color);
     box-shadow: var(--box-shadow);
@@ -13,9 +13,10 @@
     
     h2 {
         text-transform: uppercase;
-        font-size: 35px;
+        font: var(--font-30);
         color: var(--text-color);
         user-select: none;
+        font-weight: bold;
     }
     
     &__plus {

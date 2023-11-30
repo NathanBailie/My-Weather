@@ -1,0 +1,43 @@
+.ForecastList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+
+    &__item {
+        width: var(--card-max-width);
+        height: var(--card-height);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: var(--card-bg-color);
+        box-shadow: var(--box-shadow);
+        border-radius: var(--windows-border-radius);
+        padding: 25px;
+    }
+
+    &__name {
+        text-transform: uppercase;
+        font: var(--font-30);
+        color: var(--text-color);
+        user-select: none;
+        font-weight: bold;    
+    }
+
+    &__temp {
+        font: var(--font-120);
+        color: var(--temp-color); 
+        margin-top: 25px;
+    }
+
+    &__descr {
+        font: var(--font-30);
+        letter-spacing: 1px;
+        color: var(--descr-color);
+        text-transform: uppercase;
+        font-weight: light;
+    }
+ 
+}

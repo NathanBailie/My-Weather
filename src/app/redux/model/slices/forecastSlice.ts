@@ -21,10 +21,8 @@ export const forecastSlice = createSlice({
         changeErrorsText: (state, action) => {
             state.errorText = action.payload;
         },
-        getForecastDataFromLocalstore: (state) => {
-            const storedForecastJSON = localStorage.getItem(WEATHER_FORECAST_KEY);
-            const storedForecastData = storedForecastJSON && JSON.parse(storedForecastJSON);
-            state.data = storedForecastData;
+        getForecastDataFromLocalstore: (state, action) => {
+            state.data = action.payload;
         }
     },
     extraReducers: (builder) => {

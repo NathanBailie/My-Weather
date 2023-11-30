@@ -22,8 +22,8 @@ export const ThemeSwitcher = memo(() => {
         >
             {
                 theme === Theme.DARK
-                    ? <Icon src={darkIcon} />
-                    : <Icon src={lightIcon} />
+                    ? <Icon src={darkIcon} alt="theme_icon" size="50px" />
+                    : <Icon src={lightIcon} alt="theme_icon" size="50px" />
             }
         </Button>
     );

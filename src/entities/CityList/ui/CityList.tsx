@@ -21,7 +21,7 @@ export const CityList = memo(() => {
         return (
             <Button
                 className='city'
-                font={ButtonFonts.FONT_L}
+                font={ButtonFonts.FONT_24}
                 key={id}
                 title={`${t('City')}, ${t('CountryCode')}${stateTitle}`}
                 onClick={() => { dispatch(fetchForecast({ lat, lon })) }}

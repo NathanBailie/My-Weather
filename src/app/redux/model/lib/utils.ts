@@ -85,3 +85,7 @@ export function normalizeString(str: string): string {
 
     return result;
 }
+
+export function isObjectEqual(objA: any, objB: any): boolean {
+    return JSON.stringify(objA) === JSON.stringify(objB);
+}
