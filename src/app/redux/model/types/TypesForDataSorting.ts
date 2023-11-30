@@ -23,12 +23,12 @@ export interface AveragedObject {
 }
 
 export interface FinalObject {
-    name: string
-    country: string
-    lat: number
-    lon: number
-    sunrise: string
-    sunset: string
+    name?: string
+    country?: string
+    lat?: number
+    lon?: number
+    sunrise?: string
+    sunset?: string
     date?: string
-    data: AveragedObject[]
+    data?: AveragedObject[]
 }

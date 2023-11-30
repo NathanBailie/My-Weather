@@ -4,7 +4,7 @@ import { fetchForecast } from '../services/fetchForecast';
 import { sortData } from '../lib/sortData';
 
 const initialState: ForecastSchema = {
-    data: [],
+    data: {},
     loadingStatus: 'idle',
     error: false,
     errorText: ''
@@ -30,8 +30,7 @@ export const forecastSlice = createSlice({
             .addCase(fetchForecast.fulfilled, (state, action) => {
                 state.loadingStatus = 'succeeded';
                 state.error = false;
-                state.data = action.payload;
-                sortData(action.payload);
+                state.data = sortData(action.payload);
             })
             .addCase(fetchForecast.rejected, (state, action) => {
                 state.loadingStatus = 'failed';

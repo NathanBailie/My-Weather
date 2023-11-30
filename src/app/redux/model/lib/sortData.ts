@@ -5,6 +5,7 @@ import {
     findMostFrequentStringInArray,
     getNearestFourDaysDate,
     kelvinToCelsius,
+    normalizeString,
     timestampToTime
 } from './utils';
 
@@ -56,7 +57,7 @@ export function sortData(data: ForecastData): FinalObject {
         newObject.pressure = Math.round(findAverage(elem.pressure));
         newObject.humidity = Math.round(findAverage(elem.humidity));
         newObject.visibility = Math.round(findAverage(elem.temp));
-        newObject.descr = findMostFrequentStringInArray(elem.descr);
+        newObject.descr = normalizeString(findMostFrequentStringInArray(elem.descr));
         newObject.date = elem.date;
 
         newAveragedData.push(newObject);

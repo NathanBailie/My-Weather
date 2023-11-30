@@ -70,3 +70,18 @@ export function timestampToTime(timestamp: number): string {
 
     return time;
 }
+
+export function normalizeString(str: string): string {
+    let strArray = str.split(' ');
+
+    let result = '';
+
+    for (let str of strArray) {
+        let start = str.slice(0, 1).toUpperCase();
+        let end = str.slice(1);
+        let finalStr = start + end;
+        result += finalStr;
+    }
+
+    return result;
+}
