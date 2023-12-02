@@ -1,12 +1,13 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useEffect } from 'react';
-import cls from './ForecastList.module.scss';
 import { WEATHER_FORECAST_KEY } from 'shared/const/localstorage';
 import { useDispatch, useSelector } from 'react-redux';
 import { forecastActions, getForecastData } from 'app/redux';
 import { isObjectEqual } from 'app/redux/model/lib/utils';
-import { Icon } from 'shared/ui/Icon/Icon';
+import { type FinalObject } from 'app/redux/model/types/TypesForDataSorting';
+import cls from './ForecastList.module.scss';
+import { ForecastCard } from '../ForecastCard/ForecastCard/ForecastCard';
 
 interface ForecastListProps {
     className?: string
@@ -31,24 +32,18 @@ export const ForecastList = memo((props: ForecastListProps) => {
         return null;
     }
 
-    const content = forecastData.map((item) => {
-        const { id, name, country, lat, lon, data, currentDate } = item;
+    const content = forecastData.map((item: FinalObject) => {
+        const { id, name, country, lat, lon, data, currentDate, sunrise, sunset } = item;
         const { temp, feelsLike, iconSrc, weatherDescr } = data[0];
 
         return (
             <div className={cls.ForecastList__item} key={id}>
-                <h2 className={cls.ForecastList__name}>{name}</h2>
-                <Icon src={iconSrc} alt={weatherDescr} size='200px' />
-                <h2 className={cls.ForecastList__temp}>{temp}&#176;</h2>
-                <span className={cls.ForecastList__descr}>{weatherDescr}</span>
-                <div className={cls.ForecastList__tempWrapper}>
-                    <div className={cls.ForecastList__tempMin}>
-
-                    </div>
-                    <div className={cls.ForecastList__tempMax}>
-
-                    </div>
-                </div>
+                <ForecastCard
+                    name={name}
+                    descr={weatherDescr}
+                    temp={temp}
+                    feelsLike={feelsLike}
+                    data={data} />
             </div>
         );
     })
