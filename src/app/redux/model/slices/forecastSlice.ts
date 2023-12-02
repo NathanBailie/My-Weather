@@ -3,6 +3,7 @@ import { type ForecastSchema } from '../types/ForecastSchema';
 import { fetchForecast } from '../services/fetchForecast';
 import { sortData } from '../lib/sortData';
 import { WEATHER_FORECAST_KEY } from 'shared/const/localstorage';
+import { updateForecast } from '../services/updateForecast';
 
 const initialState: ForecastSchema = {
     data: [],
@@ -23,6 +24,11 @@ export const forecastSlice = createSlice({
         },
         getForecastDataFromLocalstore: (state, action) => {
             state.data = action.payload;
+        },
+        deleteForecast: (state, action) => {
+            const newData = state.data.filter((forecast) => forecast.id !== action.payload);
+            state.data = newData;
+            localStorage.setItem(WEATHER_FORECAST_KEY, JSON.stringify(newData))
         }
     },
     extraReducers: (builder) => {
@@ -35,12 +41,32 @@ export const forecastSlice = createSlice({
                 state.loadingStatus = 'succeeded';
                 state.error = false;
                 state.data = [...state.data, sortData(action.payload)];
-                localStorage.setItem(WEATHER_FORECAST_KEY, JSON.stringify(state.data))
+                localStorage.setItem(WEATHER_FORECAST_KEY, JSON.stringify(state.data));
             })
             .addCase(fetchForecast.rejected, (state, action) => {
                 state.loadingStatus = 'failed';
                 state.error = true;
                 state.errorText = action.error.message ?? '';
+            })
+
+            .addCase(updateForecast.pending, (state) => {
+                state.error = false;
+            })
+            .addCase(updateForecast.fulfilled, (state, action) => {
+                state.error = false;
+                const newforecast = sortData(action.payload);
+                const newData = state.data.filter((forecast) => {
+                    if (forecast.id !== newforecast.id) {
+                        return forecast;
+                    } else {
+                        return newforecast
+                    }
+                });
+                state.data = newData;
+                localStorage.setItem(WEATHER_FORECAST_KEY, JSON.stringify(state.data));
+            })
+            .addCase(updateForecast.rejected, (state, action) => {
+                console.log(action.error.message);
             });
     }
 });

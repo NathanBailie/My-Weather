@@ -17,3 +17,4 @@ export {
 
 export { fetchCities } from './model/services/fetchCities';
 export { fetchForecast } from './model/services/fetchForecast';
+export { updateForecast } from './model/services/updateForecast';

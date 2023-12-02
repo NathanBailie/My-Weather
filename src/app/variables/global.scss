@@ -5,14 +5,17 @@
     // fonts
     --font-family-main:  sans-serif;
     --font-size-24: 24px;
-    --font-line-32: 32px;
-    --font-24: var(--font-size-24) / var(--font-line-32) var(--font-family-main);
+    --line-heigt-32: 32px;
+    --font-24: var(--font-size-24) / var(--line-heigt-32) var(--font-family-main);
     --font-size-30: 30px;
-    --font-line-40: 48px;
-    --font-30: var(--font-size-30) / var(--font-line-40) var(--font-family-main);
+    --line-heigt-38: 38px;
+    --font-30: var(--font-size-30) / var(--line-heigt-38) var(--font-family-main);
+    --font-size-40: 40px;
+    --line-heigt-48: 48px;
+    --font-40: var(--font-size-40) / var(--line-heigt-48) var(--font-family-main);
     --font-size-120: 120px;
-    --font-line-128: 128px;
-    --font-120: var(--font-size-120) / var(--font-line-128) var(--font-family-main);
+    --line-heigt-128: 128px;
+    --font-120: var(--font-size-120) / var(--line-heigt-128) var(--font-family-main);
     
     // header
     --header-height: 90px;

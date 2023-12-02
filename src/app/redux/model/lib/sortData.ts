@@ -10,7 +10,7 @@ import {
 } from './utils';
 import uuid from 'react-uuid';
 
-export function sortData(data: ForecastData): FinalObject {
+export function sortData(data: ForecastData, prevIndex?: string): FinalObject {
     const fourNearestDaysDate = getNearestFourDaysDate(); // [ '2023-12-29','2023-11-30','2023-12-1','2023-12-2','2023-12-3']
     let iconBaseLink = 'https://openweathermap.org/img/wn/';
     let newData: InitialObject[] = [];
@@ -66,7 +66,7 @@ export function sortData(data: ForecastData): FinalObject {
     }
 
     const finalData: FinalObject = {
-        id: uuid(),
+        id: prevIndex ?? uuid(),
         name: data.city.name,
         country: data.city.country,
         lat: data.city.coord.lat,

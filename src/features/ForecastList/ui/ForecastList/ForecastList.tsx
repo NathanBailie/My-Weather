@@ -13,7 +13,7 @@ interface ForecastListProps {
     className?: string
 }
 
-export const ForecastList = memo((props: ForecastListProps) => {
+export const ForecastList = (props: ForecastListProps) => {
     const { className } = props;
     const { t } = useTranslation();
     const dispatch = useDispatch();
@@ -39,11 +39,15 @@ export const ForecastList = memo((props: ForecastListProps) => {
         return (
             <div className={cls.ForecastList__item} key={id}>
                 <ForecastCard
+                    id={id}
                     name={name}
                     descr={weatherDescr}
                     temp={temp}
                     feelsLike={feelsLike}
-                    data={data} />
+                    data={data}
+                    lat={lat}
+                    lon={lon}
+                />
             </div>
         );
     })
@@ -53,6 +57,6 @@ export const ForecastList = memo((props: ForecastListProps) => {
             {content}
         </div>
     );
-});
+};
 
 ForecastList.displayName = 'ForecastList';
