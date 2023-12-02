@@ -6,9 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
-import { ErrorText } from '../ErrorText/ErrorText';
-import { Loader } from '../Loader/Loader';
-import { CityList } from 'entities/CityList';
 import { citiesActions, getInputValue, getModalIsOpen, modalAndInputActions } from 'app/redux';
 import {
     getCitiesError,
@@ -17,7 +14,10 @@ import {
 } from 'app/redux/model/selectors/getCitiesSelectors';
 import useValidateInput from 'app/redux/model/hooks/useValidate';
 import cls from './Modal.module.scss';
-import { Button, ButtonFonts } from '../Button/Button';
+import { Button, ButtonFonts } from 'shared/ui/Button/Button';
+import { ErrorText } from 'shared/ui/ErrorText/ErrorText';
+import { Loader } from 'shared/ui/Loader/Loader';
+import { CityList } from '../CityList';
 
 export const Modal = memo(() => {
     const { t } = useTranslation();

@@ -26,6 +26,7 @@ export const ForecastList = memo((props: ForecastListProps) => {
             dispatch(forecastActions.getForecastDataFromLocalstore(storedForecastData));
         }
     }, [forecastData, dispatch]);
+
     if (forecastData === null || forecastData.length === 0) {
         return null;
     }

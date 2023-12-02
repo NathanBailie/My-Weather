@@ -1,6 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ForecastAdder } from 'entities/ForecastAdder';
-import { ForecastList } from 'entities/ForecastList';
+import { ForecastAdder, ForecastList } from 'features/ForecastList';
 import cls from './ListPage.module.scss';
 
 const ListPage = () => {

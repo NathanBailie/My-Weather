@@ -3,7 +3,7 @@ import { Header } from 'entities/Header';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTheme } from './providers/ThemeProvider';
 import { AppRouter } from './providers/AppRouter';
-import { Modal } from 'shared/ui/Modal/Modal';
+import { Modal } from 'entities/Modal/Modal/Modal';
 
 const App = () => {
     const { theme } = useTheme();
