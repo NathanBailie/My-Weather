@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { ModalAndInputSchema } from '../types/ModalAndInputSchema';
+import { fetchForecast } from '../services/fetchForecast';
 
 const initialState: ModalAndInputSchema = {
     modalIsOpen: false,
@@ -23,6 +24,12 @@ export const modalAndInputSlice = createSlice({
         cleanInputValue: (state) => {
             state.inputValue = '';
         }
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchForecast.fulfilled, (state) => {
+                state.modalIsOpen = false;
+            })
     }
 });
 

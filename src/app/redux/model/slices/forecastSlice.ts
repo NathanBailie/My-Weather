@@ -54,7 +54,9 @@ export const forecastSlice = createSlice({
             })
             .addCase(updateForecast.fulfilled, (state, action) => {
                 state.error = false;
-                const newforecast = sortData(action.payload);
+                const [newForecastData, prevId] = action.payload;
+                const newforecast = sortData(newForecastData, prevId);
+
                 const newData = state.data.filter((forecast) => {
                     if (forecast.id !== newforecast.id) {
                         return forecast;
@@ -62,6 +64,7 @@ export const forecastSlice = createSlice({
                         return newforecast
                     }
                 });
+
                 state.data = newData;
                 localStorage.setItem(WEATHER_FORECAST_KEY, JSON.stringify(state.data));
             })

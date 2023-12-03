@@ -10,5 +10,5 @@ export const updateForecast = createAsyncThunk('forecast/updateForecast', async 
 
     const response = await axios.get(link);
 
-    return response.data;
+    return [response.data, id];
 });
