@@ -11,7 +11,7 @@ export interface InitialObject {
     date: string
 }
 
-export interface AveragedObject {
+export interface DataObject {
     temp: number
     feelsLike: number
     tempMin: number
@@ -33,5 +33,5 @@ export interface FinalObject {
     sunrise: string
     sunset: string
     currentDate: string
-    data: AveragedObject[]
+    data: DataObject[]
 }

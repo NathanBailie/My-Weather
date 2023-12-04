@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { memo, useEffect } from 'react';
+import { useEffect } from 'react';
 import { WEATHER_FORECAST_KEY } from 'shared/const/localstorage';
 import { useDispatch, useSelector } from 'react-redux';
 import { forecastActions, getForecastData } from 'app/redux';
@@ -32,21 +32,11 @@ export const ForecastList = (props: ForecastListProps) => {
         return null;
     }
 
-    const content = forecastData.map((item: FinalObject) => {
-        const { id, name, country, lat, lon, data, currentDate, sunrise, sunset } = item;
-        const { temp, feelsLike, iconSrc, weatherDescr } = data[0];
-
+    const content = forecastData.map((forecastObject: FinalObject) => {
         return (
-            <div className={cls.ForecastList__item} key={id}>
+            <div className={cls.ForecastList__item} key={forecastObject.id}>
                 <ForecastCard
-                    id={id}
-                    name={name}
-                    descr={weatherDescr}
-                    temp={temp}
-                    feelsLike={feelsLike}
-                    data={data}
-                    lat={lat}
-                    lon={lon}
+                    forecastObject={forecastObject}
                 />
             </div>
         );

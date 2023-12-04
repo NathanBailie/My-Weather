@@ -1,0 +1,38 @@
+.CurrentWeatherInfo {
+    display: flex;
+    justify-content: space-between;
+    
+    &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        
+        img {
+            width: 40px;
+            height: 40px;
+        }
+    }
+    
+    &__infoWrapper {
+        width: 55px;
+        height: 55px;
+
+        // background: #bb6fff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        span {
+            font: var(--font-24);
+            color: var(--text-color);
+        }
+        
+        img {
+            width: 90%;
+            height: 90%;
+        }
+    }
+}

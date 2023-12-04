@@ -57,11 +57,11 @@ export const forecastSlice = createSlice({
                 const [newForecastData, prevId] = action.payload;
                 const newforecast = sortData(newForecastData, prevId);
 
-                const newData = state.data.filter((forecast) => {
+                const newData = state.data.map((forecast) => {
                     if (forecast.id !== newforecast.id) {
                         return forecast;
                     } else {
-                        return newforecast
+                        return newforecast;
                     }
                 });
 

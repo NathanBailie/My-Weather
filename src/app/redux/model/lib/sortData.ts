@@ -1,5 +1,5 @@
 import { type ForecastData } from '../types/ForecastDataTypes';
-import type { AveragedObject, FinalObject, InitialObject } from '../types/TypesForDataSorting';
+import type { DataObject, FinalObject, InitialObject } from '../types/TypesForDataSorting';
 import {
     findAverage,
     findMostFrequentStringInArray,
@@ -46,10 +46,10 @@ export function sortData(data: ForecastData, prevIndex?: string): FinalObject {
         }
     }
 
-    let newAveragedData: AveragedObject[] = [];
+    let sortedDataObject: DataObject[] = [];
 
     for (let elem of newData) {
-        let newObject: AveragedObject = {
+        let newObject = {
             temp: Math.round(kelvinToCelsius(findAverage(elem.temp))),
             feelsLike: Math.round(kelvinToCelsius(findAverage(elem.feelsLike))),
             tempMin: Math.round(kelvinToCelsius(findAverage(elem.tempMin))),
@@ -62,7 +62,7 @@ export function sortData(data: ForecastData, prevIndex?: string): FinalObject {
             date: elem.date
         };
 
-        newAveragedData.push(newObject);
+        sortedDataObject.push(newObject)
     }
 
     const finalData: FinalObject = {
@@ -73,8 +73,8 @@ export function sortData(data: ForecastData, prevIndex?: string): FinalObject {
         lon: data.city.coord.lon,
         sunrise: timestampToTime(data.city.sunrise),
         sunset: timestampToTime(data.city.sunset),
-        currentDate: newAveragedData[0].date,
-        data: newAveragedData
+        currentDate: sortedDataObject[0].date,
+        data: sortedDataObject
     };
 
     return finalData;

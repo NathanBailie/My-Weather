@@ -1,0 +1,25 @@
+.NextDaysForecast {
+    display: flex;
+    justify-content: space-between;
+    
+    &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    h2,
+    span {
+        color: var(--text-color);
+    }
+    
+    h2 {
+        font: var(--font-30);
+    }
+    
+    span {
+        font: var(--font-24);
+    }
+}
