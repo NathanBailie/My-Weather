@@ -18,20 +18,20 @@ interface CurrentWeatherInfoProps {
 export const CurrentWeatherInfo = memo((props: CurrentWeatherInfoProps) => {
     const { className, data } = props;
     const { tempMin, tempMax, humidity, pressure, iconNumber } = data;
-    const { t } = useTranslation();
+    const { t } = useTranslation('infoPanel');
 
     const weatherInfo = [
-        { info: tempMin, iconSrc: tempMinIcon, alt: 'temp_min' },
-        { info: tempMax, iconSrc: tempMaxIcon, alt: 'temp_max' },
-        { info: humidity, iconSrc: humidityIcon, alt: 'humidity' },
-        { info: pressure, iconSrc: pressureIcon, alt: 'pressure' }
+        { info: tempMin, iconSrc: tempMinIcon, descr: 'TempMin' },
+        { info: tempMax, iconSrc: tempMaxIcon, descr: 'TempMax' },
+        { info: humidity, iconSrc: humidityIcon, descr: 'Humidity' },
+        { info: pressure, iconSrc: pressureIcon, descr: 'Pressure' }
     ]
     const castedIconNumber = iconNumber as imageNumberType;
 
     return (
         <div className={classNames(cls.CurrentWeatherInfo, {}, [className])}>
             <div className={cls.CurrentWeatherInfo__item}>
-                <img src={currentWeatherIcon} alt="weather" />
+                <img src={currentWeatherIcon} alt="weather" title={t('condition')} />
                 <div className={cls.CurrentWeatherInfo__infoWrapper}>
                     <img src={imageObect[castedIconNumber]} alt="weather_icon" />
                 </div>
@@ -39,7 +39,11 @@ export const CurrentWeatherInfo = memo((props: CurrentWeatherInfoProps) => {
             {weatherInfo.map((item, id) => {
                 return (
                     <div className={cls.CurrentWeatherInfo__item} key={id}>
-                        <img src={item.iconSrc} alt={item.alt} />
+                        <img
+                            src={item.iconSrc}
+                            alt={item.descr}
+                            title={t(item.descr)}
+                        />
                         <div className={cls.CurrentWeatherInfo__infoWrapper}>
                             <span>{item.info}</span>
                         </div>

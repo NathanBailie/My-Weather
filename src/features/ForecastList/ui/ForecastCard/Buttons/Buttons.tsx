@@ -21,7 +21,7 @@ interface ButtonsProps {
 
 export const Buttons = memo((props: ButtonsProps) => {
     const { className, id, lat, lon } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('cardButtons');
     const { theme } = useTheme();
     const dispatch = useDispatch<AppDispatch>();
     const updateIcon = theme === 'light' ? updateLightIcon : updateDarkIcon;
@@ -43,15 +43,24 @@ export const Buttons = memo((props: ButtonsProps) => {
 
     return (
         <div className={classNames(cls.Buttons, {}, [className])}>
-            <button className={cls.Buttons__button} onClick={() => { dispatch(forecastActions.deleteForecast(id)) }}>
+            <button
+                className={cls.Buttons__button}
+                onClick={() => { dispatch(forecastActions.deleteForecast(id)) }}
+                title={t('Remove')}
+            >
                 <img src={deleteIcon} alt="delete_button" />
             </button>
             <button
                 className={classNames(cls.Buttons__button, mods, [])}
-                onClick={() => { updateHandler(lat, lon, id) }}>
+                onClick={() => { updateHandler(lat, lon, id) }}
+                title={t('Update')}
+            >
                 <img src={updateIcon} alt="upate_button" />
             </button>
-            <button className={cls.Buttons__button}>
+            <button
+                className={cls.Buttons__button}
+                title={t('More')}
+            >
                 <img src={arrowIcon} alt="arrow_button" />
             </button>
         </div>

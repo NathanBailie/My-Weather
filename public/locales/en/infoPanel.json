@@ -1,0 +1,7 @@
+{
+    "condition": "Weather condition",
+    "TempMin": "Min. temperature",
+    "TempMax": "Max. temperature",
+    "Humidity": "Humidity",
+    "Pressure": "Pressure"
+}

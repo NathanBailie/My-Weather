@@ -4,6 +4,7 @@
     align-items: center;
     gap: 15px;
     margin-top: 10px;
+    user-select: none;
 
     &__button {
         width: 55px;
@@ -14,7 +15,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        user-select: none;
         font: var(--font-40);
         background: var(--plus-bg);
         cursor: pointer;

@@ -29,7 +29,6 @@ export const ForecastCard = memo((props: ForecastCardProps) => {
 
     const dictionary = i18n.language === 'ru' ? weatherDescriptionsRu : weatherDescriptionsEn;
     const castedWeatherDescr = weatherDescr as WeatherDescriptionKey;
-    console.log(weatherDescr);
 
     return (
         <div className={classNames(cls.ForecastCard, {}, [className])}>

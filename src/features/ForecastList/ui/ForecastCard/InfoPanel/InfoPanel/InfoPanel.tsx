@@ -18,7 +18,7 @@ interface InfoPanelProps {
 
 export const InfoPanel = memo((props: InfoPanelProps) => {
     const { className, data } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('cardButtons');
     const { theme } = useTheme();
     const [activeBtn, setActiveBtn] = useState('today');
     const thermometerIcon = theme === 'light' ? thermometerLight : thermometerDark;
@@ -38,12 +38,14 @@ export const InfoPanel = memo((props: InfoPanelProps) => {
                 <button
                     className={classNames(cls.InfoPanel__switcher, todayMods, [className])}
                     onClick={() => { setActiveBtn('today') }}
+                    title={t('Today')}
                 >
                     <img src={thermometerIcon} alt="thermometer" />
                 </button>
                 <button
                     className={classNames(cls.InfoPanel__switcher, forecastMods, [className])}
                     onClick={() => { setActiveBtn('forecast') }}
+                    title={t('NextDays')}
                 >
                     <img src={forecastIcon} alt="weather" />
                 </button>
