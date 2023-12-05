@@ -7,6 +7,7 @@ import tempMaxIcon from 'shared/assets/icons/cardInfoPanel/tempMax.png';
 import humidityIcon from 'shared/assets/icons/cardInfoPanel/humidity.png';
 import pressureIcon from 'shared/assets/icons/cardInfoPanel/pressure.png';
 import currentWeatherIcon from 'shared/assets/icons/cardInfoPanel/currentWeather.png';
+import { type imageNumberType, imageObect } from 'shared/lib/imagesObject';
 import cls from './CurrentWeatherInfo.module.scss';
 
 interface CurrentWeatherInfoProps {
@@ -16,7 +17,7 @@ interface CurrentWeatherInfoProps {
 
 export const CurrentWeatherInfo = memo((props: CurrentWeatherInfoProps) => {
     const { className, data } = props;
-    const { tempMin, tempMax, humidity, pressure, iconSrc } = data;
+    const { tempMin, tempMax, humidity, pressure, iconNumber } = data;
     const { t } = useTranslation();
 
     const weatherInfo = [
@@ -25,13 +26,15 @@ export const CurrentWeatherInfo = memo((props: CurrentWeatherInfoProps) => {
         { info: humidity, iconSrc: humidityIcon, alt: 'humidity' },
         { info: pressure, iconSrc: pressureIcon, alt: 'pressure' }
     ]
+    const castedIconNumber = iconNumber as imageNumberType;
+    console.log(iconNumber);
 
     return (
         <div className={classNames(cls.CurrentWeatherInfo, {}, [className])}>
             <div className={cls.CurrentWeatherInfo__item}>
                 <img src={currentWeatherIcon} alt="weather" />
                 <div className={cls.CurrentWeatherInfo__infoWrapper}>
-                    <img src={iconSrc} alt="weather_icon" />
+                    <img src={imageObect[castedIconNumber]} alt="weather_icon" />
                 </div>
             </div>
             {weatherInfo.map((item, id) => {

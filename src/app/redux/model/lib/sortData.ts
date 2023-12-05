@@ -3,6 +3,7 @@ import type { DataObject, FinalObject, InitialObject } from '../types/TypesForDa
 import {
     findAverage,
     findMostFrequentStringInArray,
+    getIconNumber,
     getNearestFourDaysDate,
     kelvinToCelsius,
     normalizeString,
@@ -12,7 +13,6 @@ import uuid from 'react-uuid';
 
 export function sortData(data: ForecastData, prevIndex?: string): FinalObject {
     const fourNearestDaysDate = getNearestFourDaysDate(); // [ '2023-12-29','2023-11-30','2023-12-1','2023-12-2','2023-12-3']
-    let iconBaseLink = 'https://openweathermap.org/img/wn/';
     let newData: InitialObject[] = [];
 
     for (let i = 0; i < fourNearestDaysDate.length; i++) {
@@ -24,7 +24,7 @@ export function sortData(data: ForecastData, prevIndex?: string): FinalObject {
             pressure: [],
             humidity: [],
             visibility: [],
-            iconSrc: [],
+            iconNumber: [],
             weatherDescr: [],
             date: fourNearestDaysDate[i]
         });
@@ -40,7 +40,7 @@ export function sortData(data: ForecastData, prevIndex?: string): FinalObject {
                 newData[i].pressure.push(data.list[j].main.pressure);
                 newData[i].humidity.push(data.list[j].main.humidity);
                 newData[i].visibility.push(data.list[j].visibility);
-                newData[i].iconSrc.push(`${iconBaseLink}${data.list[j].weather[0].icon}@2x.png`);
+                newData[i].iconNumber.push(`${data.list[j].weather[0].icon}`);
                 newData[i].weatherDescr.push(data.list[j].weather[0].description);
             }
         }
@@ -57,7 +57,7 @@ export function sortData(data: ForecastData, prevIndex?: string): FinalObject {
             pressure: Math.round(findAverage(elem.pressure)),
             humidity: Math.round(findAverage(elem.humidity)),
             visibility: Math.round(findAverage(elem.temp)),
-            iconSrc: normalizeString(findMostFrequentStringInArray(elem.iconSrc)),
+            iconNumber: getIconNumber(normalizeString(findMostFrequentStringInArray(elem.iconNumber))),
             weatherDescr: findMostFrequentStringInArray(elem.weatherDescr),
             date: elem.date
         };

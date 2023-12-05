@@ -60,12 +60,10 @@ export function findMostFrequentStringInArray(stringArray: string[]): string {
 
 export function timestampToTime(timestamp: number): string {
     const date = new Date(timestamp * 1000);
-
     const hours = date.getHours();
     const minutes = date.getMinutes();
 
     const normalizedMinutes = minutes < 10 ? `0${minutes}` : minutes;
-
     const time = `${hours}:${normalizedMinutes}`;
 
     return time;
@@ -88,4 +86,14 @@ export function normalizeString(str: string): string {
 
 export function isObjectEqual(objA: any, objB: any): boolean {
     return JSON.stringify(objA) === JSON.stringify(objB);
+}
+
+export function getIconNumber(str: string): string {
+    const matches = str.match(/\d+/g);
+
+    if (matches) {
+        return matches.join('');
+    } else {
+        return '';
+    }
 }
