@@ -57,8 +57,8 @@ export function sortData(data: ForecastData, prevIndex?: string): FinalObject {
             pressure: Math.round(findAverage(elem.pressure)),
             humidity: Math.round(findAverage(elem.humidity)),
             visibility: Math.round(findAverage(elem.temp)),
-            iconNumber: getIconNumber(normalizeString(findMostFrequentStringInArray(elem.iconNumber))),
-            weatherDescr: findMostFrequentStringInArray(elem.weatherDescr),
+            iconNumber: getIconNumber(findMostFrequentStringInArray(elem.iconNumber)),
+            weatherDescr: normalizeString(findMostFrequentStringInArray(elem.weatherDescr)),
             date: elem.date
         };
 
