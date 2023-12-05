@@ -3,11 +3,12 @@
     justify-content: space-between;
     
     &__item {
+        width: 50px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 5px;
+        gap: 1px;
     }
     
     h2,
@@ -16,10 +17,15 @@
     }
     
     h2 {
-        font: var(--font-30);
+        font: var(--font-24);
     }
     
     span {
         font: var(--font-24);
+    }
+    
+    img {
+        width: 35px;
+        height: 35px;
     }
 }

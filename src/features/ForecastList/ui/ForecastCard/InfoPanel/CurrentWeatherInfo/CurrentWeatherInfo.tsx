@@ -27,7 +27,6 @@ export const CurrentWeatherInfo = memo((props: CurrentWeatherInfoProps) => {
         { info: pressure, iconSrc: pressureIcon, alt: 'pressure' }
     ]
     const castedIconNumber = iconNumber as imageNumberType;
-    console.log(iconNumber);
 
     return (
         <div className={classNames(cls.CurrentWeatherInfo, {}, [className])}>
