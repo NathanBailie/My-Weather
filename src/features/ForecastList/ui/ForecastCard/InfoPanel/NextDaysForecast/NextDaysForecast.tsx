@@ -1,8 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import cls from './NextDaysForecast.module.scss';
 import { type DataObject } from 'app/redux/model/types/TypesForDataSorting';
+import cls from './NextDaysForecast.module.scss';
 
 interface NextDaysForecastProps {
     className?: string
@@ -11,18 +11,23 @@ interface NextDaysForecastProps {
 
 export const NextDaysForecast = memo((props: NextDaysForecastProps) => {
     const { className, data } = props;
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const daysRu = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
+    const daysEn = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+    const daysArray = i18n.language === 'ru' ? daysRu : daysEn;
 
     let resultObject = data.map((item) => {
         const { date, temp } = item;
-        const resultDate = Number(date.split('-').splice(-1, 1).join(''));
-        return { date: resultDate, temp }
+        const newDate = date.split('-').join(', ');
+        const dayOfWeek = new Date(newDate).getDay();
+
+        return { day: daysArray[dayOfWeek], temp }
     })
 
-    let result = resultObject.map(({ date, temp }, index) => {
+    let result = resultObject.map(({ day, temp }, index) => {
         return (
             <div className={cls.NextDaysForecast__item} key={index}>
-                <h2>{date}</h2>
+                <h2>{day}</h2>
                 <span>{temp}</span>
             </div>
         )
