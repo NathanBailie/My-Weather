@@ -18,7 +18,7 @@ interface InfoPanelProps {
 
 export const InfoPanel = memo((props: InfoPanelProps) => {
     const { className, data } = props;
-    const { t } = useTranslation('cardButtons');
+    const { t } = useTranslation('Buttons');
     const { theme } = useTheme();
     const [activeBtn, setActiveBtn] = useState('today');
     const thermometerIcon = theme === 'light' ? thermometerLight : thermometerDark;

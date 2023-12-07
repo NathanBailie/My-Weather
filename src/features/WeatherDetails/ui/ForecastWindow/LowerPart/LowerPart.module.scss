@@ -1,6 +1,6 @@
 .LowerPart {
     width: 100%;
-    min-height: 410px;
+    min-height: 425px;
     padding: 50px 30px;
     display: flex;
     justify-content: space-between;
@@ -25,6 +25,7 @@
         width: 80px;
         height: 80px;
         margin-bottom: 5px;
+        user-select: none;
     }
 
     &__tempWrapper {
@@ -40,6 +41,7 @@
         
         span {
             font: var(--font-16);
+            font-style: italic;
         }
     }
     

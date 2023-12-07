@@ -1,7 +1,6 @@
 import { type Mods, classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useState } from 'react';
-import cls from './Buttons.module.scss';
 import updateDarkIcon from 'shared/assets/icons/cardButtons/updateDark.png';
 import updateLightIcon from 'shared/assets/icons/cardButtons/updateLight.png';
 import deleteIcon from 'shared/assets/icons/cardButtons/delete.png';
@@ -13,6 +12,7 @@ import { forecastActions, updateForecast } from 'app/redux';
 import { type AppDispatch } from 'app/providers/StoreProvider/config/store';
 import { Link } from 'react-router-dom';
 import { RoutePaths } from 'app/providers/AppRouter/lib/routerConfig';
+import cls from './Buttons.module.scss';
 
 interface ButtonsProps {
     className?: string
@@ -24,7 +24,7 @@ interface ButtonsProps {
 
 export const Buttons = memo((props: ButtonsProps) => {
     const { className, id, lat, lon, name } = props;
-    const { t } = useTranslation('cardButtons');
+    const { t } = useTranslation('Buttons');
     const { theme } = useTheme();
     const dispatch = useDispatch<AppDispatch>();
     const updateIcon = theme === 'light' ? updateLightIcon : updateDarkIcon;

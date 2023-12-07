@@ -1,4 +1,5 @@
 .WeatherDetailsPage {
+    position: relative;
     width: 100vw;
     height: calc(100vh - var(--header-height));
     background: var(--details-page-bg-color);

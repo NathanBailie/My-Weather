@@ -1,0 +1,36 @@
+.BackToList {
+    position: absolute;
+    top: 115px;
+    left: 70px;
+    user-select: none;
+    
+    button {
+        position: relative;
+        width: 110px;
+        height: 110px;
+        background: #2B244D;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.1s linear;
+        
+        &:hover {
+            transform: scale(1.03);
+        }
+        
+        &:active {
+            transform: scale(1);
+            opacity: 0.8;
+        }
+
+        img {
+            position: absolute;
+            width: 145px;
+            height: 100px;
+            top: 50%;
+            left: 20%;
+
+            // left: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}
