@@ -1,0 +1,53 @@
+.LowerPart {
+    width: 100%;
+    min-height: 410px;
+    padding: 50px 30px;
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    box-shadow: var(--detail-info-box-shadow);
+    
+    &__item {
+        width: 180px;
+        padding: 15px 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    &__name {
+        font: var(--font-24);
+        font-weight: bold;
+    }
+    
+    img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 5px;
+    }
+
+    &__tempWrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        h2 {
+            font: var(--font-30);
+            font-weight: bold;
+        }
+        
+        span {
+            font: var(--font-16);
+        }
+    }
+    
+    &__descr {
+        text-align: center;
+        margin-top: 20px;
+        font: var(--font-20);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+}

@@ -1,0 +1,9 @@
+.WeatherDetailsPage {
+    width: 100vw;
+    height: calc(100vh - var(--header-height));
+    background: var(--details-page-bg-color);
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

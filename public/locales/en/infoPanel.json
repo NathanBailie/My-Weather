@@ -3,5 +3,8 @@
     "TempMin": "Min. temperature",
     "TempMax": "Max. temperature",
     "Humidity": "Humidity",
-    "Pressure": "Pressure"
+    "Pressure": "Pressure",
+    "Sunrise": "Sunrise",
+    "Sunset": "Sunset",
+    "Feels like": "files like"
 }

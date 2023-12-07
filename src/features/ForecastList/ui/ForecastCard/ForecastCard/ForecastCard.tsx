@@ -35,7 +35,7 @@ export const ForecastCard = memo((props: ForecastCardProps) => {
             <h2 className={cls.ForecastCard__name}>{name}</h2>
             <h2 className={cls.ForecastCard__temp}>{temp}&#176;</h2>
             <span className={cls.ForecastCard__descr}>{dictionary[castedWeatherDescr]}</span>
-            <Buttons id={id} lat={lat} lon={lon} />
+            <Buttons id={id} lat={lat} lon={lon} name={name} />
             <InfoPanel data={data} />
         </div>
     );

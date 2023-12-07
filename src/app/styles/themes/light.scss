@@ -1,14 +1,19 @@
 .light {
+    // text colors
     --text-color: #172231;
+    --forecast-window-text-color: #343434;
     
     // header
     --header-bg-color: #edd09c;
     
-    // content page
-    --content-page-bg-color: linear-gradient(180deg, #FFE4B5 0.00%, #c4984c 100.00%);
+    // list page
+    --list-page-bg-color: linear-gradient(180deg, #FFE4B5 0.00%, #c4984c 100.00%);
+        
+    // details page
+    --details-page-bg-color: linear-gradient(#c3c0c0, #FF8C8C );
     
     // card
-    --plus-bg: #f1dfa3;
+    --circle-bg: #f1dfa3;
     --first-plus-bg: linear-gradient(270deg, #e12f20 0%, #f9b5af 100%);
     --second-plus-bg: linear-gradient(180deg, #e12f20 0%, #f9b5af 100%);
     
@@ -24,6 +29,10 @@
     --button-arrow-color: #895936;
     --city-hover-bg: #efefef;
     
+    
     // loader
     --loader-bg-color: #d18a0996;
+    
+    // detail info
+    --detail-info-box-shadow: 0 15px 10px -5px rgb(183 127 87 / 50%) inset;
 }

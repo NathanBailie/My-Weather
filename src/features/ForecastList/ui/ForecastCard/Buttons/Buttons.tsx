@@ -8,19 +8,22 @@ import deleteIcon from 'shared/assets/icons/cardButtons/delete.png';
 import arrowLightIcon from 'shared/assets/icons/cardButtons/arrowLight.png';
 import arrowDarkIcon from 'shared/assets/icons/cardButtons/arrowDark.png';
 import { useTheme } from 'app/providers/ThemeProvider';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { forecastActions, updateForecast } from 'app/redux';
 import { type AppDispatch } from 'app/providers/StoreProvider/config/store';
+import { Link } from 'react-router-dom';
+import { RoutePaths } from 'app/providers/AppRouter/lib/routerConfig';
 
 interface ButtonsProps {
     className?: string
     id: string
     lat: number
     lon: number
+    name: string
 }
 
 export const Buttons = memo((props: ButtonsProps) => {
-    const { className, id, lat, lon } = props;
+    const { className, id, lat, lon, name } = props;
     const { t } = useTranslation('cardButtons');
     const { theme } = useTheme();
     const dispatch = useDispatch<AppDispatch>();
@@ -61,7 +64,9 @@ export const Buttons = memo((props: ButtonsProps) => {
                 className={cls.Buttons__button}
                 title={t('More')}
             >
-                <img src={arrowIcon} alt="arrow_button" />
+                <Link to={`${RoutePaths.weather_details}${name}`}>
+                    <img src={arrowIcon} alt="arrow_button" />
+                </Link>
             </button>
         </div>
     );

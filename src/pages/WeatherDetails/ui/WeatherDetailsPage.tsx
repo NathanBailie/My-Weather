@@ -1,10 +1,15 @@
 import { classNames } from 'shared/lib/classNames/classNames';
+import { WeatherDetails } from 'features/WeatherDetails';
+import { useParams } from 'react-router-dom';
 import cls from './WeatherDetailsPage.module.scss';
 
 const WeatherDetailsPage = () => {
+    const params = useParams();
+    const cityName = params.id as string;
+
     return (
         <div className={classNames(cls.WeatherDetailsPage, {}, [])}>
-            <h1>WeatherDetailsPage</h1>
+            <WeatherDetails cityName={cityName} />
         </div>
     );
 };
