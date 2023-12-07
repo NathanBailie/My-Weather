@@ -1,12 +1,12 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useEffect } from 'react';
-import cls from './WeatherDetails.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { forecastActions, getForecastData } from 'app/redux';
 import { isObjectEqual } from 'app/redux/model/lib/utils';
 import { WEATHER_FORECAST_KEY } from 'shared/const/localstorage';
 import { ForecastWindow } from '../ForecastWindow/ForecastWindow/ForecastWindow';
+import cls from './WeatherDetails.module.scss';
 
 interface WeatherDetailsProps {
     className?: string

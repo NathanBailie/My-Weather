@@ -12,7 +12,8 @@ export {
     getForecastData,
     getForecastLoadingStatus,
     getForecastError,
-    getForecastErrorText
+    getForecastErrorText,
+    getForecastCurrentDate
 } from './model/selectors/getForecastSelectors';
 
 export { fetchCities } from './model/services/fetchCities';

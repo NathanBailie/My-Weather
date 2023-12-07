@@ -20,6 +20,10 @@ export const ForecastList = (props: ForecastListProps) => {
     const forecastData = useSelector(getForecastData);
 
     useEffect(() => {
+        dispatch(forecastActions.changeCurrentDate(''));
+    })
+
+    useEffect(() => {
         const storedForecastJSON = localStorage.getItem(WEATHER_FORECAST_KEY);
         const storedForecastData = storedForecastJSON && JSON.parse(storedForecastJSON);
 

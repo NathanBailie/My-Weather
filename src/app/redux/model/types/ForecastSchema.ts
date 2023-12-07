@@ -6,4 +6,5 @@ export interface ForecastSchema {
     loadingStatus: LoadingStatus
     error: boolean
     errorText: string
+    currentDate: string
 }

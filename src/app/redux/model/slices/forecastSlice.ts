@@ -9,7 +9,8 @@ const initialState: ForecastSchema = {
     data: [],
     loadingStatus: 'idle',
     error: false,
-    errorText: ''
+    errorText: '',
+    currentDate: ''
 };
 
 export const forecastSlice = createSlice({
@@ -29,6 +30,9 @@ export const forecastSlice = createSlice({
             const newData = state.data.filter((forecast) => forecast.id !== action.payload);
             state.data = newData;
             localStorage.setItem(WEATHER_FORECAST_KEY, JSON.stringify(newData))
+        },
+        changeCurrentDate: (state, action) => {
+            state.currentDate = action.payload;
         }
     },
     extraReducers: (builder) => {
