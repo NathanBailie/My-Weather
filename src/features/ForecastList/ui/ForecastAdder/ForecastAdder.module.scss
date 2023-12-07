@@ -10,6 +10,7 @@
     align-items: center;
     padding: 25px;
     gap: 50px;
+    animation: appear 1s ease 1;
     
     h2 {
         text-transform: uppercase;
@@ -65,5 +66,15 @@
         max-width: 400px;
         max-height: 300px;
         user-select: none;
+    }
+}
+@keyframes appear {
+
+    from {
+        transform: scale(0.1);
+    }
+
+    to {
+        transform: scale(1);
     }
 }

@@ -9,13 +9,14 @@
     box-shadow: var(--box-shadow);
     border-radius: var(--windows-border-radius);
     padding: 25px;
+    animation: appear 1s ease 1;
     
     &__name {
         text-transform: uppercase;
         font: var(--font-30);
         color: var(--text-color);
         user-select: none;
-        font-weight: bold;    
+        font-weight: bold;   
     }
     
     &__mainImage {
@@ -42,5 +43,15 @@
         color: var(--descr-color);
         text-transform: uppercase;
         text-align: center;
+    }
+}
+@keyframes appear {
+
+    from {
+        transform: scale(0.1);
+    }
+
+    to {
+        transform: scale(1);
     }
 }

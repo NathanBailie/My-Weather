@@ -1,0 +1,13 @@
+.WeatherDetails {
+    animation: show 1s linear 1; 
+}
+@keyframes show {
+
+    from {
+        opacity: 0;
+    }
+    
+    to {
+        opacity: 1;
+    }
+}
