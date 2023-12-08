@@ -1,7 +1,7 @@
 .ForecastAdder {
-    width: var(--card-max-width);
+    max-width: var(--card-max-width);
+    width: 100%;
     height: var(--card-height);
-    position: relative;
     background: var(--card-bg-color);
     box-shadow: var(--box-shadow);
     border-radius: var(--windows-border-radius);
@@ -11,6 +11,8 @@
     padding: 25px;
     gap: 50px;
     animation: show 1s ease 1;
+    position: relative;
+    user-select: none;
     
     h2 {
         text-transform: uppercase;
@@ -18,6 +20,14 @@
         color: var(--text-color);
         user-select: none;
         font-weight: bold;
+    }
+    
+    img {
+        position: absolute;
+        bottom: 25px;
+        left: 25px;
+        right: 25px;
+        width: calc(100% - 50px);
     }
     
     &__plus {

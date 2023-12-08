@@ -7,6 +7,7 @@ import { forecastActions, getForecastData } from 'app/redux';
 import { isObjectEqual } from 'app/redux/model/lib/utils';
 import { type FinalObject } from 'app/redux/model/types/TypesForDataSorting';
 import { ForecastCard } from '../ForecastCard/ForecastCard/ForecastCard';
+import { ForecastAdder } from '../ForecastAdder/ForecastAdder';
 import cls from './ForecastList.module.scss';
 
 interface ForecastListProps {
@@ -36,19 +37,19 @@ export const ForecastList = (props: ForecastListProps) => {
         return null;
     }
 
-    const content = forecastData.map((forecastObject: FinalObject) => {
+    const cards = forecastData.map((forecastObject: FinalObject) => {
         return (
-            <div className={cls.ForecastList__item} key={forecastObject.id}>
-                <ForecastCard
-                    forecastObject={forecastObject}
-                />
-            </div>
+            <ForecastCard
+                forecastObject={forecastObject}
+                key={forecastObject.id}
+            />
         );
     })
 
     return (
         <div className={classNames(cls.ForecastList, {}, [className])}>
-            {content}
+            {cards}
+            <ForecastAdder />
         </div>
     );
 };

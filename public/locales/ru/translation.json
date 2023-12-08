@@ -13,5 +13,7 @@
     "City": "Город",
     "CountryCode": "Код страны",
     "State": "Штат",
-    "ChooseYourCity": "Выберите свой город"
+    "ChooseYourCity": "Выберите свой город",
+    "PageDidNotFound": "Страница не найдена",
+    "EmptyData": "По вашему запросу нету данных"
 }

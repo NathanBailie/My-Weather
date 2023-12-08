@@ -1,6 +1,8 @@
 .NextDaysForecast {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 50px);
     justify-content: space-between;
+    gap: 10px;
     
     &__item {
         width: 50px;

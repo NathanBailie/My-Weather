@@ -46,9 +46,7 @@ export const CurrentWeatherInfo = memo((props: CurrentWeatherInfoProps) => {
                             title={t(item.descr)}
                             size='40px'
                         />
-                        <div className={cls.CurrentWeatherInfo__infoWrapper}>
-                            <span>{item.info}</span>
-                        </div>
+                        <span>{item.info}</span>
                     </div>
                 )
             })}

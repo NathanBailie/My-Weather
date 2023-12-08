@@ -7,7 +7,6 @@ import cityDay from 'shared/assets/icons/city_day.png';
 import cityNight from 'shared/assets/icons/city_night.png';
 import { modalAndInputActions } from 'app/redux';
 import cls from './ForecastAdder.module.scss';
-import { Icon } from 'shared/ui/Icon/Icon';
 
 export const ForecastAdder = memo(() => {
     const { t } = useTranslation();
@@ -28,7 +27,7 @@ export const ForecastAdder = memo(() => {
                 <span></span>
                 <span></span>
             </button>
-            <Icon src={image} alt="city" maxWidth='400px' maxHeight='300px' />
+            <img src={image} alt="city" />
         </div>
     );
 });

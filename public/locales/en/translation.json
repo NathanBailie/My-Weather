@@ -13,5 +13,7 @@
     "City": "City",
     "CountryCode": "Country code",
     "State": "State",
-    "ChooseYourCity": "Choose your city"
+    "ChooseYourCity": "Choose your city",
+    "PageDidNotFound": "The page did not found",
+    "EmptyData": "There is no data on your request"
 }

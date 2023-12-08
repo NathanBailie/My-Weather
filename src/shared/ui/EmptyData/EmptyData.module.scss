@@ -1,15 +1,12 @@
-.NotFoundPage {
-    position: relative;
+.EmptyData {
     width: 100vw;
     height: calc(100vh - var(--header-height));
-    background: var(--list-page-bg-color);
-    padding: 25px;
     display: flex;
-    flex-flow: column wrap;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     gap: 50px;
-    box-shadow: var(--page-box-shadow);
+    padding: 25px;
     
     h2 {
         font: var(--font-40);
@@ -17,4 +14,5 @@
         color: var(--text-color);
         text-align: center;
     }
+
 }

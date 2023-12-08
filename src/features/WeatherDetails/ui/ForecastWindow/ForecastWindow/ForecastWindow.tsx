@@ -4,9 +4,10 @@ import { memo, useEffect } from 'react';
 import { type FinalObject } from 'app/redux/model/types/TypesForDataSorting';
 import { UpperPart } from '../UpperPart/UpperPart';
 import { LowerPart } from '../LowerPart/LowerPart';
-import cls from './ForecastWindow.module.scss';
 import { forecastActions } from 'app/redux';
 import { useDispatch } from 'react-redux';
+import { EmptyData } from 'shared/ui/EmptyData/EmptyData';
+import cls from './ForecastWindow.module.scss';
 
 interface ForecastWindowProps {
     className?: string
@@ -25,7 +26,7 @@ export const ForecastWindow = memo((props: ForecastWindowProps) => {
     }, [dispatch, forecast]);
 
     if (forecast === undefined) {
-        return null;
+        return <EmptyData />;
     }
 
     return (

@@ -1,7 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import cls from './ForecastCard.module.scss';
 import { type FinalObject } from 'app/redux/model/types/TypesForDataSorting';
 import { Buttons } from '../Buttons/Buttons';
 import { InfoPanel } from '../InfoPanel/InfoPanel/InfoPanel';
@@ -10,6 +9,7 @@ import {
     weatherDescriptionsEn,
     weatherDescriptionsRu
 } from 'shared/lib/DescriptionDictionary';
+import cls from './ForecastCard.module.scss';
 
 interface ForecastCardProps {
     className?: string
