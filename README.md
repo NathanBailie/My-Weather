@@ -25,4 +25,4 @@ This is an application that allows you to get information about the current weat
 * Custom component library (Portal, Icon, Button, ErrorText, Loader)
 * My own weather icons library and  dictionary for translating weather descriptions in two languages
 
-* Additional (Responsive Web Design, working with Figma and Photoshop, classNames, сustom js-animation of modal-window, axios, two themes, localization into two languages)
+* Additional (Responsive Web Design, working with Figma and Photoshop, classNames, сustom js-animation of modal-window, axios, local storage, two themes, localization into two languages)
