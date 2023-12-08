@@ -27,6 +27,10 @@ export function createPlugins(
                 {
                     from: path.resolve('./public/favicon.png'),
                     to: path.resolve('build/icons')
+                },
+                {
+                    from: path.resolve('./public/locales'),
+                    to: path.resolve('build/locales')
                 }
             ]
         })
