@@ -34,7 +34,9 @@ export const ForecastList = (props: ForecastListProps) => {
     }, [forecastData, dispatch]);
 
     if (forecastData === null || forecastData.length === 0) {
-        return null;
+        <div className={classNames(cls.ForecastList, {}, [className])}>
+            <ForecastAdder />
+        </div>
     }
 
     const cards = forecastData.map((forecastObject: FinalObject) => {
