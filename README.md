@@ -3,7 +3,7 @@
 ## Description
 This is an application that allows you to get information about the current weather сondition and the forecast for the next 5 days. The application has 2 themes - light and dark. Also localization is added, English and Russian and you can switch the language at any time you want.
 
-### Here you can try this project on the website - [My Weather](https://my-weather.frontwebdev.ru/ "Click to visit")
+### Here you can try this project on the website - [My Weather](https://www.my-weather.frontwebdev.ru/ "Click to visit")
 
 ## Screenshots
 <img src="https://github.com/NathanBailie/My-Weather/raw/main/screenshots/mainLightEn.PNG" width="900" />
