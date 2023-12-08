@@ -6,7 +6,13 @@
     justify-content: space-between;
     align-items: center;
     background: var(--header-bg-color);
-    color: var(--text-color);
+    
+    h1 {
+        font: var(--font-40);
+        color: var(--text-color);
+        font-weight: bold;
+        text-align: center;
+    }
     
     &__wrapper {
         display: flex;
@@ -14,4 +20,25 @@
         align-items: center;
         gap: 20px;
     }
+}
+@media(width<= 700px) {
+
+    .Header {
+
+        h1 {
+            font: var(--font-30);
+            font-weight: bold;
+        } 
+    }
+}
+@media(width<= 400px) {
+
+    .Header {
+
+        h1 {
+            font: var(--font-24);
+            font-weight: bold;
+        } 
+    }
+
 }

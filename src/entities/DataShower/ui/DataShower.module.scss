@@ -1,4 +1,17 @@
 .DataShower {
     font: var(--font-30);
     color: var(--text-color);
+    text-align: center;
+}
+@media(width<= 700px) {
+
+    .DataShower {
+        font: var(--font-24);
+    }
+}
+@media(width<= 400px) {
+
+    .DataShower {
+        font: var(--font-20);
+    }
 }
