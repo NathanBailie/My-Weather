@@ -4,6 +4,8 @@ import { memo } from 'react';
 import { type DataObject } from 'app/redux/model/types/TypesForDataSorting';
 import { type imageNumberType, imageObect } from 'shared/lib/imagesObject';
 import cls from './NextDaysForecast.module.scss';
+import { dayShortRu, daysShortEn } from 'shared/lib/DataArrays';
+import { Icon } from 'shared/ui/Icon/Icon';
 
 interface NextDaysForecastProps {
     className?: string
@@ -13,11 +15,9 @@ interface NextDaysForecastProps {
 export const NextDaysForecast = memo((props: NextDaysForecastProps) => {
     const { className, data } = props;
     const { t, i18n } = useTranslation();
-    const daysRu = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
-    const daysEn = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-    const daysArray = i18n.language === 'ru' ? daysRu : daysEn;
+    const daysArray = i18n.language === 'ru' ? dayShortRu : daysShortEn;
 
-    let resultObject = data.map((item) => {
+    const weatherObject = data.map((item) => {
         const { date, temp, iconNumber } = item;
         const newDate = date.split('-').join(', ');
         const dayOfWeek = new Date(newDate).getDay();
@@ -26,11 +26,11 @@ export const NextDaysForecast = memo((props: NextDaysForecastProps) => {
         return { day: daysArray[dayOfWeek], iconSrc: imageObect[castedIconNumber], temp }
     })
 
-    let result = resultObject.map(({ day, iconSrc, temp }, index) => {
+    const result = weatherObject.map(({ day, iconSrc, temp }, index) => {
         return (
             <div className={cls.NextDaysForecast__item} key={index}>
                 <h2>{day}</h2>
-                <img src={iconSrc} alt="weather_icon" />
+                <Icon src={iconSrc} alt="weather_icon" size='35px' />
                 <span>{temp}</span>
             </div>
         )

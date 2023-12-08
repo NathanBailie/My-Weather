@@ -16,6 +16,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     theme?: ButtonTheme
     children?: ReactNode
     font?: string
+    size?: string
     width?: string
     height?: string
 }
@@ -26,6 +27,9 @@ export const Button = memo((props: ButtonProps) => {
         theme = ButtonTheme.CLEAR,
         children,
         font = ButtonFonts.FONT_24,
+        size = '',
+        width = '',
+        height = '',
         ...otherProps
     } = props;
 
@@ -35,10 +39,14 @@ export const Button = memo((props: ButtonProps) => {
         <button
             className={classNames(cls.Button, {}, aditionalClasses)}
             type="button"
+            style={{
+                width: `${width || size}`,
+                height: `${height || size}`
+            }}
             {...otherProps}
         >
             {children}
-        </button>
+        </button >
     );
 });
 

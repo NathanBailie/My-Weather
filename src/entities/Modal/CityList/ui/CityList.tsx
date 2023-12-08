@@ -27,7 +27,6 @@ export const CityList = memo(() => {
                 onClick={() => { dispatch(fetchForecast({ lat, lon })) }}
             >
                 {`${city}, ${country}` + `${state ? `, ${state}` : ''}`}
-
             </Button>
         )
     })

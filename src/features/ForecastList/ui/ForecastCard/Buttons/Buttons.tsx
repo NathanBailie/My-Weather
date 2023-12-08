@@ -13,6 +13,7 @@ import { type AppDispatch } from 'app/providers/StoreProvider/config/store';
 import { Link } from 'react-router-dom';
 import { RoutePaths } from 'app/providers/AppRouter/lib/routerConfig';
 import cls from './Buttons.module.scss';
+import { Icon } from 'shared/ui/Icon/Icon';
 
 interface ButtonsProps {
     className?: string
@@ -31,10 +32,6 @@ export const Buttons = memo((props: ButtonsProps) => {
     const arrowIcon = theme === 'light' ? arrowLightIcon : arrowDarkIcon;
     const [isActive, setIsActive] = useState(false);
 
-    const mods: Mods = {
-        [cls.Buttons__button_update]: isActive
-    }
-
     const updateHandler = (lat: number, lon: number, id: string) => {
         setIsActive(true);
         dispatch(updateForecast({ lat, lon, id }))
@@ -44,6 +41,10 @@ export const Buttons = memo((props: ButtonsProps) => {
         }, 500);
     };
 
+    const mods: Mods = {
+        [cls.Buttons__button_update]: isActive
+    }
+
     return (
         <div className={classNames(cls.Buttons, {}, [className])}>
             <button
@@ -51,21 +52,21 @@ export const Buttons = memo((props: ButtonsProps) => {
                 onClick={() => { dispatch(forecastActions.deleteForecast(id)) }}
                 title={t('Remove')}
             >
-                <img src={deleteIcon} alt="delete_button" />
+                <Icon src={deleteIcon} alt="delete_button" size='35px' />
             </button>
             <button
                 className={classNames(cls.Buttons__button, mods, [])}
                 onClick={() => { updateHandler(lat, lon, id) }}
                 title={t('Update')}
             >
-                <img src={updateIcon} alt="upate_button" />
+                <Icon src={updateIcon} alt="update_button" size='35px' />
             </button>
             <button
                 className={cls.Buttons__button}
                 title={t('More')}
             >
                 <Link to={`${RoutePaths.weather_details}${name}`}>
-                    <img src={arrowIcon} alt="arrow_button" />
+                    <Icon src={arrowIcon} alt="arrow_button" size='35px' />
                 </Link>
             </button>
         </div>

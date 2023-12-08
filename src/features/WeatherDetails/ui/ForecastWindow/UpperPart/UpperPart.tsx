@@ -12,10 +12,10 @@ import {
     weatherDescriptionsEn,
     weatherDescriptionsRu
 } from 'shared/lib/DescriptionDictionary';
-import cls from './UpperPart.module.scss';
 import { type FinalObject } from 'app/redux/model/types/TypesForDataSorting';
 import minTemp from 'shared/assets/icons/minTemp.png';
 import maxTemp from 'shared/assets/icons/maxTemp.png';
+import cls from './UpperPart.module.scss';
 
 interface UpperPartProps {
     className?: string
@@ -36,7 +36,6 @@ export const UpperPart = memo((props: UpperPartProps) => {
         tempMax,
         humidity,
         pressure,
-        visibility,
         weatherDescr
     } = todayWeather;
     const { t, i18n } = useTranslation('infoPanel');

@@ -5,7 +5,6 @@ export interface InitialObject {
     tempMax: number[]
     pressure: number[]
     humidity: number[]
-    visibility: number[]
     iconNumber: string[]
     weatherDescr: string[]
     date: string
@@ -18,7 +17,6 @@ export interface DataObject {
     tempMax: number
     pressure: number
     humidity: number
-    visibility: number
     iconNumber: string
     weatherDescr: string
     date: string

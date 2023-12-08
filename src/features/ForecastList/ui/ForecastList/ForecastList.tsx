@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { forecastActions, getForecastData } from 'app/redux';
 import { isObjectEqual } from 'app/redux/model/lib/utils';
 import { type FinalObject } from 'app/redux/model/types/TypesForDataSorting';
-import cls from './ForecastList.module.scss';
 import { ForecastCard } from '../ForecastCard/ForecastCard/ForecastCard';
+import cls from './ForecastList.module.scss';
 
 interface ForecastListProps {
     className?: string

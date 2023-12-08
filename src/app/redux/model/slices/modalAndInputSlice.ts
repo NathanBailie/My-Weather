@@ -29,6 +29,7 @@ export const modalAndInputSlice = createSlice({
         builder
             .addCase(fetchForecast.fulfilled, (state) => {
                 state.modalIsOpen = false;
+                state.inputValue = '';
             })
     }
 });

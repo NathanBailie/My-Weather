@@ -5,24 +5,41 @@ import cls from './Icon.module.scss';
 interface IconProps {
     src: string
     alt: string
+    title?: string
     size?: string
+    maxSize?: string
+    maxWidth?: string
+    maxHeight?: string
+    width?: string
+    height?: string
 }
 
 export const Icon = memo((props: IconProps) => {
     const {
         src,
         alt,
-        size = '100%'
+        title = '',
+        size = '',
+        maxSize = '',
+        maxWidth = '',
+        maxHeight = '',
+        width = '',
+        height = '',
+        ...otherProps
     } = props;
     return (
         <img
             src={src}
             alt={alt}
+            title={title}
             className={classNames(cls.Icon, {}, [])}
             style={{
-                width: `${size}`,
-                height: `${size}`
+                width: `${width || size}`,
+                height: `${height || size}`,
+                maxWidth: `${maxWidth || maxSize}`,
+                maxHeight: `${maxHeight || maxSize}`
             }}
+            {...otherProps}
         />
     )
 }

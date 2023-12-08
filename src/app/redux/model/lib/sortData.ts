@@ -12,7 +12,7 @@ import {
 import uuid from 'react-uuid';
 
 export function sortData(data: ForecastData, prevIndex?: string): FinalObject {
-    const fourNearestDaysDate = getNearestFourDaysDate(); // [ '2023-12-29','2023-11-30','2023-12-1','2023-12-2','2023-12-3']
+    const fourNearestDaysDate = getNearestFourDaysDate();
     let newData: InitialObject[] = [];
 
     for (let i = 0; i < fourNearestDaysDate.length; i++) {
@@ -23,7 +23,6 @@ export function sortData(data: ForecastData, prevIndex?: string): FinalObject {
             tempMax: [],
             pressure: [],
             humidity: [],
-            visibility: [],
             iconNumber: [],
             weatherDescr: [],
             date: fourNearestDaysDate[i]
@@ -39,7 +38,6 @@ export function sortData(data: ForecastData, prevIndex?: string): FinalObject {
                 newData[i].tempMax.push(data.list[j].main.temp_max);
                 newData[i].pressure.push(data.list[j].main.pressure);
                 newData[i].humidity.push(data.list[j].main.humidity);
-                newData[i].visibility.push(data.list[j].visibility);
                 newData[i].iconNumber.push(`${data.list[j].weather[0].icon}`);
                 newData[i].weatherDescr.push(data.list[j].weather[0].description);
             }

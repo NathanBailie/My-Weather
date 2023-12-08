@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { type CitiesSchema } from '../types/CitiesSchema';
 import { fetchCities } from '../services/fetchCities';
 import { sortCities } from '../lib/sortCities';
+import { fetchForecast } from '../services/fetchForecast';
 
 const initialState: CitiesSchema = {
     cities: [],
@@ -46,7 +47,14 @@ export const citiesSlice = createSlice({
                 state.citiesLoadingStatus = 'failed';
                 state.citiesError = true;
                 state.citiesErrorText = 'WrongRequest';
-            });
+            })
+
+            .addCase(fetchForecast.fulfilled, (state, action) => {
+                state.cities = [];
+                state.citiesLoadingStatus = 'idle';
+                state.citiesError = false;
+                state.citiesErrorText = '';
+            })
     }
 });
 

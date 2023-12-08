@@ -7,9 +7,10 @@ import thermometerDark from 'shared/assets/icons/cardInfoPanel/thermometerDark.p
 import forecastLight from 'shared/assets/icons/cardInfoPanel/forecastLight.png';
 import forecastDark from 'shared/assets/icons/cardInfoPanel/forecastDark.png';
 import { type DataObject } from 'app/redux/model/types/TypesForDataSorting';
-import cls from './InfoPanel.module.scss';
 import { CurrentWeatherInfo } from '../CurrentWeatherInfo/CurrentWeatherInfo';
 import { NextDaysForecast } from '../NextDaysForecast/NextDaysForecast';
+import { Icon } from 'shared/ui/Icon/Icon';
+import cls from './InfoPanel.module.scss';
 
 interface InfoPanelProps {
     className?: string
@@ -40,14 +41,14 @@ export const InfoPanel = memo((props: InfoPanelProps) => {
                     onClick={() => { setActiveBtn('today') }}
                     title={t('Today')}
                 >
-                    <img src={thermometerIcon} alt="thermometer" />
+                    <Icon src={thermometerIcon} alt="thermometer" size='45px' />
                 </button>
                 <button
                     className={classNames(cls.InfoPanel__switcher, forecastMods, [className])}
                     onClick={() => { setActiveBtn('forecast') }}
                     title={t('NextDays')}
                 >
-                    <img src={forecastIcon} alt="weather" />
+                    <Icon src={forecastIcon} alt="weather" size='45px' />
                 </button>
             </div>
             <div className={cls.InfoPanel__divider}></div>

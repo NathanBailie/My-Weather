@@ -31,6 +31,7 @@
         align-items: center;
         cursor: pointer;
         user-select: none;
+        border: none;
         
         span {
             position: absolute;
@@ -60,12 +61,6 @@
             transform: scale(1);
             opacity: 0.8;
         }
-    }
-    
-    img {
-        max-width: 400px;
-        max-height: 300px;
-        user-select: none;
     }
 }
 @keyframes show {

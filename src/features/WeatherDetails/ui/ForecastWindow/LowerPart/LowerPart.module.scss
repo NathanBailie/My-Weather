@@ -20,19 +20,13 @@
         font: var(--font-24);
         font-weight: bold;
     }
-    
-    img {
-        width: 80px;
-        height: 80px;
-        margin-bottom: 5px;
-        user-select: none;
-    }
 
     &__tempWrapper {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-top: 5px;
         
         h2 {
             font: var(--font-30);
