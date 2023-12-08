@@ -2,10 +2,16 @@
     width: 100%;
     min-height: 425px;
     padding: 50px 30px;
-    display: flex;
-    justify-content: space-between;
+
+    // display: flex;
+    // justify-content: space-between;
     background: white;
     box-shadow: var(--detail-info-box-shadow);
+    border-radius: 0 0 var(--windows-border-radius) var(--windows-border-radius);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 180px);
+    justify-content: space-between;
+    gap: 10px;
     
     &__item {
         width: 180px;
@@ -45,5 +51,11 @@
         font: var(--font-20);
         text-transform: uppercase;
         letter-spacing: 1px;
+    }
+}
+@media(width<= 650px) {
+
+    .LowerPart {
+        justify-content: center;
     }
 }

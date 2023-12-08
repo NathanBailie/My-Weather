@@ -1,8 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { WeatherDetails } from 'features/WeatherDetails';
 import { useParams } from 'react-router-dom';
-import cls from './WeatherDetailsPage.module.scss';
 import { BackToList } from 'widgets/BackToList/BackToList';
+import cls from './WeatherDetailsPage.module.scss';
 
 const WeatherDetailsPage = () => {
     const params = useParams();

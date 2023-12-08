@@ -55,6 +55,13 @@ export const UpperPart = memo((props: UpperPartProps) => {
         <div
             className={classNames(cls.UpperPart, {}, [className])}
             style={{ background: `url(${finalBgImage}) center center/cover no-repeat` }}>
+
+            {/* for adaptive */}
+            <div className={classNames(cls.UpperPart__nameWrapper, {}, [cls.adaptive])}>
+                <h2>{name}, {country}</h2>
+                <span></span>
+            </div>
+
             <div className={cls.UpperPart__info}>
                 <div className={cls.UpperPart__temp}>
                     <h2>{temp} &#176;</h2>
@@ -75,14 +82,14 @@ export const UpperPart = memo((props: UpperPartProps) => {
                         <h4>{t('Humidity')}</h4>
                         <span>{humidity} %</span>
                     </div>
-                    <div className={cls.UpperPart__vertDivider}></div>
+                    <div className={cls.UpperPart__divider}></div>
                     <div className={cls.UpperPart__metric} title={t('Pressure')}>
                         <h4>{t('Pressure')}</h4>
                         <span>{pressure} {pressureUnit}</span>
                     </div>
                 </div>
             </div>
-            <div className={cls.UpperPart__wrapper}>
+            <div className={cls.UpperPart__aditionalInfowrapper}>
                 <div className={cls.UpperPart__nameWrapper}>
                     <h2>{name}, {country}</h2>
                     <span></span>
@@ -92,6 +99,13 @@ export const UpperPart = memo((props: UpperPartProps) => {
                     <span>{t('Sunset')}: {sunset}</span>
                 </div>
             </div>
+
+            {/* for adaptive */}
+            <div className={classNames(cls.UpperPart__infoWrapper, {}, [cls.adaptive])}>
+                <span>{t('Sunrise')}: {sunrise}</span>
+                <span>{t('Sunset')}: {sunset}</span>
+            </div>
+
         </div>
     );
 });

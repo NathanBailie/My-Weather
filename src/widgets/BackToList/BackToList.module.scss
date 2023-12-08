@@ -32,7 +32,7 @@
         }
     }
 }
-@media(width<= 650px) {
+@media(width<= 1300px) {
 
     .BackToList {
         top: 20px;
@@ -45,6 +45,23 @@
             img {
                 width: 85px;
                 height: 60px;
+            }
+        }
+    }
+}
+@media(width<= 400px) {
+
+    .BackToList {
+        top: 20px;
+        left: 20px;
+        
+        button {
+            width: 45px;
+            height: 45px;
+    
+            img {
+                width: 60px;
+                height: 40px;
             }
         }
     }
