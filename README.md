@@ -15,9 +15,9 @@ This is an application that allows you to get information about the current weat
 
 ## Technologies
 * My own build. All dependencies are manually configured
-* React 18, react-router-dom, rect-redux, reduxjs/toolkit, createAsyncThunk, hooks (memo, useEffect, useState, useCallback), custom hooks (useValidate, useTheme), portal
+* React 18, react-router-dom, react-redux, reduxjs/toolkit, createAsyncThunk, hooks (memo, useEffect, useState, useCallback), custom hooks (useValidate, useTheme), portal
 * TypeScript (types, interfaces, enums), JavaScript
-* SCSS (flex, grid, animations), css modules, full adaptive
+* SCSS (flex, grid, animations), css variables, css modules
 * Webpack (manually configured with decomposition, env variables)
 * Linters (ESLint, Stylelint)
 * Husky (pre-commit)
